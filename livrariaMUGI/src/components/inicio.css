@@ -1,0 +1,192 @@
+/* Copie e cole seu CSS aqui, exatamente igual */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #130F0C;
+  font-family: 'Segoe UI', sans-serif;
+  color: #E3E3E3;
+}
+
+/* TOPO */
+.topo {
+  display: flex;
+  flex-direction: row;
+  height: 119px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.topo img {
+  width: 93px;
+  border-radius: 20px;
+}
+
+.acesso {
+  display: flex;
+  gap: 10px;
+}
+
+.acesso a {
+  padding: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.acesso a:hover {
+  color: #620AA2;
+}
+
+/* CORPAO */
+.texto-grande {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.texto-grande div {
+  flex: 1;
+  min-width: 300px;
+}
+
+.texto-grande h1 {
+  font-size: 48px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.texto-grande p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.texto-grande button {
+  background-color: #402158;
+  color: #E3E3E3;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.texto-grande button:hover {
+  background-color: #5c319a;
+}
+
+.imagem-lateral img {
+  width: 500px;
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+/* LIVROS */
+.corpo-dos-livros {
+  padding: 30px 60px;
+  text-align: center;
+}
+
+.corpo-dos-livros h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.galeria-livros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.galeria-livros img {
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.galeria-livros img:hover {
+  transform: scale(1.05);
+}
+
+/* RODAPE */
+.rodape {
+  background-color: #130F0C;
+  padding: 30px 60px;
+  color: #E3E3E3;
+  font-size: 16px;
+}
+
+.rodape-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.logo-footer img {
+  width: 93px;
+  border-radius: 20px;
+}
+
+.footer-secoes {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-bloco h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #620AA2;
+}
+
+.footer-bloco ul {
+  list-style: none;
+}
+
+.footer-bloco ul li a {
+  color: #E3E3E3;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.footer-bloco ul li a:hover {
+  color: #620AA2;
+}
+
+.icones-sociais a {
+  margin-right: 15px;
+  color: #E3E3E3;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.icones-sociais a:hover {
+  color: #620AA2;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}

@@ -1,0 +1,173 @@
+.tudo{
+  background-color: #390e4e;
+}
+
+/* .img-redonda {
+  width: 50px; 
+  height: 50px; 
+  object-fit: cover;
+  border-radius: 50%;
+} */
+
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: #1a1a1a;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.topo img {
+  height: 60px;
+}
+
+.acesso a {
+  margin-left: 20px;
+  color: #4f287c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.acesso a:hover {
+  color: #742dae;
+}
+
+.blocos-livros {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px;
+  background-color: #390e4e;
+}
+
+.bloco {
+  display: flex;
+  flex-direction: row;
+  background-color: #000000;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /*Faz os blocos terem animações*/
+  position: relative;
+}
+
+
+.bloco:hover {
+  transform: translateY(-5px); /*Faz os blocos terem animação*/
+}
+
+.icones {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.icones i {
+  margin-left: 10px;
+  color: #8525a4;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icones i:hover {
+  color: #930f0f;
+}
+
+.bloco img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+.sinopse {
+  padding: 16px;
+  color: rgb(0, 0, 0);
+  flex: 1;
+}
+
+.sinopse h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #444343;
+}
+
+.sinopse p {
+  font-size: 1rem;
+  color: #838383;
+}
+
+.rodape {
+  background-color: #000;
+  color: #000000;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.rodape-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo-footer img {
+  height: 60px;
+  margin-bottom: 16px;
+}
+
+.footer-secoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-bloco h3 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #4f297b;
+}
+
+.footer-bloco ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-bloco ul li {
+  margin-bottom: 8px;
+}
+
+.footer-bloco ul li a {
+  color: #562078;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bloco ul li a:hover {
+  color: #7b22b2;
+}
+
+.icones-sociais a {
+  margin-right: 12px;
+  color: #501b7c;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.icones-sociais a:hover {
+  color: #7022ac;
+}
+
+.rodape p {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #5d1c86;
+}

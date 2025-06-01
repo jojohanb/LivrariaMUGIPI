@@ -1,0 +1,273 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #130F0C;
+    font-family: 'Segoe UI', sans-serif;
+    color: #E3E3E3;
+  }
+  
+  /* TOPO */
+  .topo {
+    display: flex;
+    flex-direction: row;
+    height: 119px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .topo img {
+    width: 93px;
+    border-radius: 20px;
+  }
+  
+  .acesso {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .acesso a {
+    padding: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .acesso a:hover {
+    color: #620AA2;
+  }
+
+
+  /* SEÇÃO DESTACADA DE LIVRO */
+.destaque-livro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px;
+    background: #402158;
+    flex-wrap: wrap;
+  }
+  
+  .imagem-livro img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+  }
+  
+  .imagem-livro img:hover {
+    transform: scale(1.03);
+  }
+  
+  .texto-livro {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+  }
+  
+  .texto-livro h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .texto-livro p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 25px;
+  }
+  
+  .btn-emprestar {
+    background-color: #290c3d;
+    color: #ffffff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .btn-emprestar:hover {
+    background-color: #7d32b9;
+    transform: scale(1.05);
+  }
+  
+  .botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .botoes .btn-emprestar {
+    padding: 8px 20px; /* botão menor */
+    font-size: 14px;   /* texto menor */
+  }
+  
+  .botoes img {
+    width: 100px; /* ou qualquer tamanho menor que o original */
+    height: auto;
+  }
+  
+  
+  /* PARTE DOS LIVROS */
+.corpo-dos-livros {
+    background-color: #5e2a80;
+    padding: 40px;
+    width: 100%;
+}
+
+.corpo-dos-livros h1 {
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 36px;
+}
+
+/* Grade de livros com 6 por linha */
+.galeria-livros {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px; /* menor espaço entre os livros */
+    justify-items: center;
+}
+
+.galeria-livros img {
+    width: 100%;
+    max-width: 160px; /* aumentei o tamanho máximo dos livros */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.galeria-livros img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+.rodape {
+    background: linear-gradient(180deg, #2D0A44, #1E0730);
+    color: #E3E3E3;
+    padding: 50px 20px 30px 20px;
+    margin-top: 60px;
+    font-size: 16px;
+  }
+  
+  .rodape-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+  }
+  
+  .logo-footer {
+    flex: 1 1 250px;
+  }
+  
+  .logo-footer img {
+    width: 100px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .logo-footer p {
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  
+  .footer-secoes {
+    display: flex;
+    flex: 2 1 600px;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-bloco h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  .footer-bloco ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-bloco li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-bloco a {
+    color: #bbbbbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-bloco a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  
+  /* Redes Sociais como ícones circulares */
+  .icones-sociais {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .icones-sociais a {
+    background-color: #ffffff15;
+    padding: 10px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icones-sociais a:hover {
+    background-color: #620AA2;
+    transform: scale(1.1);
+  }
+  
+  footer .copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #999999;
+    margin-top: 40px;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .rodape-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-secoes {
+      justify-content: center;
+    }
+  }
+  

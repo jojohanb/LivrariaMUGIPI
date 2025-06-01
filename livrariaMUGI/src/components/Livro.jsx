@@ -1,17 +1,13 @@
-import React from "react";
-import "./inicio.css";
-import imagem_6 from '../assets/image 6 (1).png';
+import React from 'react';
+import './livros.css';  // Importa o CSS
 
-// FontAwesome já pode ser incluído no index.html ou via npm/yarn no projeto React
-// Aqui só usamos as classes normalmente
-
-export default function Inicio() {
+const Livros = () => {
   return (
     <>
       {/* Topo */}
       <div className="topo">
         <div>
-          {/* <img src={imagem_6} alt="Logo" /> */}
+          {/* <img src="/Captura de tela 2025-03-31 113630.png" alt="Logo" /> */}
         </div>
         <div className="acesso">
           <a href="./login">Login</a>
@@ -21,26 +17,33 @@ export default function Inicio() {
         </div>
       </div>
 
-      {/* texto e imagem lado a lado */}
-      <div className="texto-grande">
-        <div>
-          <h1>LivrariaMUGI</h1>
+      {/* Seção de destaque do livro */}
+      <section className="destaque-livro">
+        <div className="imagem-livro">
+          <div className="fundo-roxo"></div>
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/71UwSHSZRnS.jpg"
+            alt="Capa do livro A Culpa é das Estrelas"
+          />
+        </div>
+
+        <div className="texto-livro">
+          <h2>A Culpa é das Estrelas</h2>
           <p>
-            Na Livraria MUGI, acreditamos que cada livro é uma chave para um novo universo. <br />
-            Aqui, você encontra histórias que inspiram, ensinam e transformam. A leitura é uma <br />
-            jornada única, capaz de expandir horizontes e despertar novas ideias. Venha descobrir <br />
-            um espaço onde o saber e a imaginação se encontram. Dê asas à sua curiosidade e <br />
-            permita-se ser tocado pelas palavras. Na MUGI, a próxima página pode mudar tudo.
+            "A Culpa é das Estrelas", de John Green, é uma tocante história de
+            amor entre Hazel e Augustus, dois adolescentes com câncer que se
+            conhecem em um grupo de apoio. Juntos, enfrentam as dores e alegrias
+            da vida, descobrindo o valor do amor, da amizade e das pequenas
+            coisas. Uma narrativa emocionante, profunda e inesquecível.
           </p>
-          <button>Saiba mais</button>
+          <div className="botoes">
+            <button className="btn-emprestar">Emprestar</button>
+            <img src="./Segmented button.png" alt="" />
+          </div>
         </div>
+      </section>
 
-        <div className="imagem-lateral">
-          {/* <img id="img-maior" src="/image 6.png" alt="Imagem ilustrativa" /> */}
-          <img  src={imagem_6} alt="Logo" />
-        </div>
-      </div>
-
+      {/* Galeria de livros */}
       <div className="corpo-dos-livros">
         <h1>LIVROS</h1>
         <div className="galeria-livros">
@@ -50,14 +53,12 @@ export default function Inicio() {
           <img src="https://th.bing.com/th/id/OIP.wm3KnkJ4gCh4mY_iEzwC2gHaKd?rs=1&pid=ImgDetMain" alt="" />
           <img src="https://3.bp.blogspot.com/-SKq5Nlj2bws/U2__z9QsBYI/AAAAAAAAAPs/_esBjkbwQsQ/s1600/Capa_Como-eu-era-antes-de-voce2.jpg" alt="" />
           <img src="https://designcomcafe.com.br/wp-content/uploads/2017/08/capas-de-livros-the-bell-jar-sylvia-plath.jpg" alt="" />
-
           <img src="https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg" alt="" />
           <img src="https://www.record.com.br/wp-content/uploads/2019/07/11791.jpeg" alt="" />
           <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/cfd37592232855.5e45b55d72ca0.png" alt="" />
           <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/800_9786550971458.jpg" alt="" />
           <img src="https://th.bing.com/th/id/OIP.I47GxeAt-YpPXJZ-xU40XwHaLN?w=500&h=757&rs=1&pid=ImgDetMain" alt="" />
           <img src="https://th.bing.com/th/id/OIP.8ZHEf0o2xQLlN4ZVf2fA4gHaJ9?w=595&h=800&rs=1&pid=ImgDetMain" alt="" />
-
           <img src="https://m.media-amazon.com/images/I/71PaY+d6LSL._SY522_.jpg" alt="" />
           <img src="https://th.bing.com/th/id/R.4ed8a5d2ca9e44e06b029cc55e5e3d97?rik=0wCkDXVe%2f6DQdg&pid=ImgRaw&r=0" alt="" />
           <img src="https://http2.mlstatic.com/D_NQ_NP_2X_647141-MLB40913711411_022020-F.jpg" alt="" />
@@ -67,6 +68,7 @@ export default function Inicio() {
         </div>
       </div>
 
+      {/* Footer */}
       <footer className="rodape">
         <div className="rodape-container">
           <div className="logo-footer">
@@ -91,7 +93,6 @@ export default function Inicio() {
                 <li><a href="./inicio">Início</a></li>
                 <li><a href="./historico">Histórico</a></li>
                 <li><a href="/livro">Livro</a></li>
-                
               </ul>
             </div>
 
@@ -109,4 +110,6 @@ export default function Inicio() {
       </footer>
     </>
   );
-}
+};
+
+export default Livros;

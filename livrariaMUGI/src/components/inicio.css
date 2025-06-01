@@ -46,6 +46,8 @@ body {
   color: #620AA2;
 }
 
+
+
 /* CORPAO */
 .texto-grande {
   display: flex;
@@ -89,10 +91,11 @@ body {
 }
 
 .imagem-lateral img {
-  width: 500px;
+  width: 700px;
   max-width: 100%;
   border-radius: 20px;
 }
+
 
 /* LIVROS */
 .corpo-dos-livros {

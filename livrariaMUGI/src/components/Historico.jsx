@@ -12,7 +12,7 @@ const Historico = () => {
           {/* <img src={logo} alt="logo livraria" className='img-redonda' /> */}
         </div>
         <div className="acesso">
-          <Link to="/home">Login</Link>
+          <Link to="/login">Login</Link>
           <Link to="/inicio">Início</Link>
           <Link to="/livro">Livro</Link>
           <Link to="/historico">Histórico</Link>
@@ -73,16 +73,17 @@ const Historico = () => {
               <div className="icones-sociais">
                 <a href="#"><i className="fab fa-instagram"></i></a>
                 <a href="#"><i className="fab fa-facebook-f"></i></a>
-                <a href="#"><i className="fab fa-x-twitter"></i></a>
+                {/* <a href="#"><i className="fab fa-x-twitter"></i></a> */}
               </div>
             </div>
 
             <div className="footer-bloco">
               <h3>Acesso</h3>
               <ul>
-                <li><Link to="/home">Login</Link></li>
+                <li><Link to="/login">Login</Link></li>
                 <li><Link to="/inicio">Início</Link></li>
                 <li><Link to="/historico">Histórico</Link></li>
+                <li><Link to="/livro">Livro</Link></li>
               </ul>
             </div>
 

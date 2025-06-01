@@ -1,0 +1,167 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #130F0C;
+  font-family: 'Segoe UI', sans-serif;
+  color: #E3E3E3;
+}
+
+/* TOPO */
+.topo {
+  display: flex;
+  flex-direction: row;
+  height: 119px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.topo img {
+  width: 93px;
+  border-radius: 20px;
+}
+
+.acesso {
+  display: flex;
+  gap: 10px;
+}
+
+.acesso a {
+  padding: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.acesso a:hover {
+  color: #620AA2;
+}
+
+/* FORMULÁRIO E IMAGEM LADO A LADO */
+.forms-img {
+  display: flex;
+  height: calc(100vh - 180px);
+  width: 100%;
+  margin-top: 30px;
+  z-index: 1;
+}
+
+.formulario {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1, label {
+  color: aliceblue;
+}
+
+.espaco {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  background-color: #E3E3E3;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.campos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.campos img {
+  width: 30px;
+}
+
+#esqueceu {
+  color: #E3E3E3;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Botoes alinhados com os inputs */
+.espaco_botoes{
+    display: flex;
+    flex-direction:row;
+    width: 400px;
+    
+
+}
+.botoes {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  gap: 0;
+}
+
+#botao1,
+#botao2 {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 0;
+}
+
+#botao1 {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #E3E3E3;
+  color: #130F0C;
+}
+
+#botao2 {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #402158;
+  color: #E3E3E3;
+}
+
+#botao1:hover {
+  background-color: #d1d1d1;
+}
+
+#botao2:hover {
+  background-color: #5e2a80;
+}
+
+/* Imagem lateral */
+.imagem-lateral {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+#img-maior {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

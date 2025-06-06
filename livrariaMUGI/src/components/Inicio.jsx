@@ -43,6 +43,10 @@ export default function Inicio() {
 
       <div className="corpo-dos-livros">
         <h1>LIVROS</h1>
+          <div className="campo-pesquisa">
+            <input type="text" placeholder="Pesquisar por título ou autor..." />
+            <button>Pesquisar</button>
+          </div>
         <div className="galeria-livros">
           <img src="https://i.pinimg.com/originals/ad/f0/b8/adf0b8235bdda40c2a0bd090698345a1.jpg" alt="" />
           <img src="https://diadebrilho.com/wp-content/uploads/2012/07/bookthief.jpg" alt="" />

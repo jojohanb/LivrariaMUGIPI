@@ -1,0 +1,12 @@
+# POST http://localhost:8086/autor/cadastrar
+# Content-Type: application/json
+
+# {
+#   "nome": "Maria Oliveira"
+# }
+POST http://localhost:8086/autor/cadastrar
+Content-Type: application/json
+
+{
+  "nome": "Ta indo meu deus"
+}

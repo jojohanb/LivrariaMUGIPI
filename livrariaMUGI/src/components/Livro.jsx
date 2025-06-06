@@ -1,13 +1,51 @@
-import React from 'react';
-import './livros.css';  // Importa o CSS
+import React, { useState } from 'react';
+import './livros.css';  
 
 const Livros = () => {
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [titulo, setTitulo] = useState('');
+  const [autor, setAutor] = useState('');
+  const [urlCapa, setUrlCapa] = useState('');
+
+  const handleCadastro = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Envia o nome do autor para o backend
+      const response = await fetch('http://localhost:8086/autor/cadastrar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nome: autor }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao cadastrar autor');
+      }
+
+      const autorCadastrado = await response.json();
+      console.log('Autor cadastrado:', autorCadastrado);
+
+      // Aqui você pode depois enviar o livro junto, com o autor cadastrado, se quiser
+
+      // Limpar os campos
+      setTitulo('');
+      setAutor('');
+      setUrlCapa('');
+      setMostrarFormulario(false);
+    } catch (error) {
+      console.error('Erro:', error.message);
+      alert('Falha ao cadastrar autor. Tente novamente.');
+    }
+  };
+
   return (
     <>
       {/* Topo */}
       <div className="topo">
         <div>
-          {/* <img src="/Captura de tela 2025-03-31 113630.png" alt="Logo" /> */}
+          {/* Logo se quiser */}
         </div>
         <div className="acesso">
           <a href="./login">Login</a>
@@ -46,8 +84,40 @@ const Livros = () => {
       {/* Galeria de livros */}
       <div className="corpo-dos-livros">
         <h1>LIVROS</h1>
+
+        <button className="btn-cadastrar" onClick={() => setMostrarFormulario(!mostrarFormulario)}>
+          {mostrarFormulario ? 'Fechar Formulário' : 'Cadastrar Livro'}
+        </button>
+
+        {mostrarFormulario && (
+          <form className="formulario-livro" onSubmit={handleCadastro}>
+            <input
+              type="text"
+              placeholder="Título do Livro"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Autor"
+              value={autor}
+              onChange={(e) => setAutor(e.target.value)}
+              required
+            />
+            <input
+              type="url"
+              placeholder="URL da Capa"
+              value={urlCapa}
+              onChange={(e) => setUrlCapa(e.target.value)}
+              required
+            />
+            <button type="submit">Cadastrar</button>
+          </form>
+        )}
+
         <div className="galeria-livros">
-          <img src="https://i.pinimg.com/originals/ad/f0/b8/adf0b8235bdda40c2a0bd090698345a1.jpg" alt="" />
+           <img src="https://i.pinimg.com/originals/ad/f0/b8/adf0b8235bdda40c2a0bd090698345a1.jpg" alt="" />
           <img src="https://diadebrilho.com/wp-content/uploads/2012/07/bookthief.jpg" alt="" />
           <img src="https://i.pinimg.com/originals/cf/56/ba/cf56ba7ee3c9e6df2a80dc96623b02bc.jpg" alt="" />
           <img src="https://th.bing.com/th/id/OIP.wm3KnkJ4gCh4mY_iEzwC2gHaKd?rs=1&pid=ImgDetMain" alt="" />
@@ -65,16 +135,15 @@ const Livros = () => {
           <img src="https://th.bing.com/th/id/OIP.XJIum7R-v-d1xFg5Dg4BxQHaKE?w=500&h=680&rs=1&pid=ImgDetMain" alt="" />
           <img src="https://marketplace.canva.com/EAD0UFx27hs/1/0/512w/canva-siena-ilustra%C3%A7%C3%A3o-de-napole%C3%A3o-capa-de-livro-wPahEVwVXZY.jpg" alt="" />
           <img src="https://www.saraivaconteudo.com.br/capas/02/download-os-vandalos-a-historia-e-o-legado-dos-barbaros-mais-famosos-da-antiguidade-charles-river-editors-ler-online-pdf.jpg" alt="" />
+          {/* Imagens dos livros existentes */}
+          {/* ... seu código de imagens aqui ... */}
         </div>
       </div>
 
       {/* Footer */}
       <footer className="rodape">
         <div className="rodape-container">
-          <div className="logo-footer">
-            {/* <img src="/Captura de tela 2025-03-31 113630.png" alt="Logo LivrariaMUGI" /> */}
-            {/* <p>LivrariaMUGI — Transformando páginas em experiências.</p> */}
-          </div>
+          <div className="logo-footer"></div>
 
           <div className="footer-secoes">
             <div className="footer-bloco">
@@ -82,7 +151,6 @@ const Livros = () => {
               <div className="icones-sociais">
                 <a href="#"><i className="fab fa-instagram"></i></a>
                 <a href="#"><i className="fab fa-facebook-f"></i></a>
-                {/* <a href="#"><i className="fab fa-x-twitter"></i></a> */}
               </div>
             </div>
 

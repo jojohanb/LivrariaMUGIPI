@@ -124,6 +124,70 @@
   
   
   /* PARTE DOS LIVROS */
+.formulario-livro {
+  background-color: #1f1f1f;
+  padding: 30px;
+  margin: 30px auto;
+  border-radius: 12px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.formulario-livro input[type="text"],
+.formulario-livro input[type="url"] {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.formulario-livro input:focus {
+  outline: none;
+  border: 2px solid #620aa2;
+}
+
+.formulario-livro button {
+  padding: 12px;
+  background-color: #620aa2;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.formulario-livro button:hover {
+  background-color: #8e3cc7;
+  transform: scale(1.02);
+}
+
+.btn-cadastrar {
+  margin: 20px auto;
+  padding: 12px 24px;
+  background-color: #290c3d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: block;
+}
+
+.btn-cadastrar:hover {
+  background-color: #620aa2;
+  transform: scale(1.05);
+}
+
+
 .corpo-dos-livros {
     background-color: #5e2a80;
     padding: 40px;

@@ -1,20 +1,19 @@
-//Importa a classe Pool da biblioteca pg.
-//O Pool gerencia um conjunto de conexões com o banco de dados PostgreSQL.
+//Importa a classe Pool da biblioteca pg, usada para criar uma "piscina" de conexões com o banco de dados const 
 const { Pool } = require('pg');
-//dotenv server para que possamos armazenar as nossas variáveis de ambiente que não desejamos deixar disponível para o público ao realizar um commit.
+//Importa o pacote dotenv e carrega as variáveis de ambiente do arquivo .env
 const dotenv = require('dotenv');
-
 dotenv.config();
 
 // Conexão com a Base de Dados:
 const pool = new Pool({
   connectionString: process.env.CONNECTION_STRING
 });
-//Se estiver conectado exibe a mensagem
 pool.on('connect', () => {
   console.log('Base de Dados conectado com sucesso!');
 });
-//permite realizaar consultas simples e segura no bd
+// permite realizar consultas simples e seguras no bd
 module.exports = {
   query: (text, params) => pool.query(text, params),
 };
+
+//ANOTAÇÕES FEITAS.

@@ -4,9 +4,22 @@
 # {
 #   "nome": "Maria Oliveira"
 # }
+# POST http://localhost:8086/autor/cadastrar
+# Content-Type: application/json
+
+# {
+#   "nome": "Ta indo meu deus"
+# }
+
+# POST http://localhost:8086/autor/cadastrar
+# Content-Type: application/json
+
+# {
+#   "nome": "José"
+# }
 POST http://localhost:8086/autor/cadastrar
 Content-Type: application/json
 
 {
-  "nome": "Ta indo meu deus"
+  "nome": "Itamar"
 }

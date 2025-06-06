@@ -1,29 +1,32 @@
 const db = require("../config/database");
-// Função responsável por criar um autor
-// exports.cadastrarAutor = async function (novo_autor) {
-//     try {
-//     const sql = 'INSERT INTO AUTORES (nome) VALUES ($1) RETURNING *';
-//     const valores = [novo_autor.nome];
-
-//     const resultado = await db.query(sql, valores);
-//     return resultado.rows[0]; // retorna o autor inserido
-//   } catch (erro) {
-//     console.error('Erro ao cadastrar autor:', erro);
-//     throw erro;
-//   }
-// };
-exports.cadastrarAutor = async function (novo_autor) {
+//Responsável por inserir um novo autor no banco de dados 
+const cadastrarAutor = async function (nome) {
   try {
-    console.log('Tentando cadastrar autor:', novo_autor);
+    // console.log('Tentando cadastrar autor:', novo_autor);
     const sql = 'INSERT INTO autores (nome) VALUES ($1) RETURNING *';
-    const valores = [novo_autor.nome];
+    const valores = [nome];
+    //Executa o comando SQL usando a conexão do banco.
+    //Executa uma consulta
     const resultado = await db.query(sql, valores);
-    console.log('Resultado da inserção:', resultado.rows[0]);
-    return resultado.rows[0];
+    // console.log('Resultado da inserção:', resultado.rows[0]);
+    //A função retorna esse autor criado para ser usado na resposta da API.
+    return ;
   } catch (erro) {
-    // console.error('Erro ao cadastrar autor (detalhe):', erro);
-    console.error('Erro ao cadastrar autor:', erro.message, erro.stack);
+    console.error('Erro ao cadastrar na função cadastrarAutor do model:', erro.message, erro.stack);
     throw erro;
   }
 };
 
+const listarAutores = async function () {
+    const sql = 'SELECT id_autor, nome FROM AUTORES';
+    try{
+      const resultado = await db.query(sql);
+      return resultado.rows;
+    } catch(erro){
+      console.error('Erro ao listar os autores', erro.message, erro.stack);
+      throw erro;
+    }
+    
+}
+
+module.exports = {cadastrarAutor, listarAutores}

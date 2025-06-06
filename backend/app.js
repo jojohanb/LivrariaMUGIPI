@@ -9,7 +9,6 @@ app.use(cors());
 //importa o módulo de rotas de autor (/cadastrar)
 const autorController = require ('./controller/autor.controller');
 
-//Adicionar Bootstrap
 app.use(express.json()); // para aceitar JSON no corpo da requisição
 app.use('/autor', autorController); // monta a rota /autor/cadastrar
 

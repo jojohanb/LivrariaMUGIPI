@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +19,7 @@
     align-items: center;
     margin: 30px;
     position: relative;
-    z-index: 2;
+    z-index: 2; /*Posição*/
   }
   
   .topo img {
@@ -39,7 +38,7 @@
     text-decoration: none;
     font-weight: 500;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /*Transição*/
   }
   
   .acesso a:hover {
@@ -47,7 +46,7 @@
   }
 
 
-  /* SEÇÃO DESTACADA DE LIVRO */
+  /* SEÇÃO DE LIVRO */
 .destaque-livro {
     display: flex;
     align-items: center;
@@ -63,11 +62,11 @@
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /*Otra transição*/
   }
   
   .imagem-livro img:hover {
-    transform: scale(1.03);
+    transform: scale(1.03); /*Redimensionamento*/
   }
   
   .texto-livro {
@@ -97,12 +96,12 @@
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
+    transition: background-color 0.3s ease, transform 0.2s; /*Mais transição*/
   }
   
   .btn-emprestar:hover {
     background-color: #7d32b9;
-    transform: scale(1.05);
+    transform: scale(1.05); /*Redimensionamento*/
   }
   
   .botoes {
@@ -113,12 +112,12 @@
   }
   
   .botoes .btn-emprestar {
-    padding: 8px 20px; /* botão menor */
-    font-size: 14px;   /* texto menor */
+    padding: 8px 20px; 
+    font-size: 14px;   
   }
   
   .botoes img {
-    width: 100px; /* ou qualquer tamanho menor que o original */
+    width: 100px; 
     height: auto;
   }
   
@@ -134,7 +133,7 @@
   flex-direction: column;
   gap: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /*Mais transição aa*/
 }
 
 .formulario-livro input[type="text"],
@@ -145,11 +144,11 @@
   background-color: #2d2d2d;
   color: #ffffff;
   font-size: 16px;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease; /*Otra transição*/
 }
 
 .formulario-livro input:focus {
-  outline: none;
+  outline: none; /*Removendo contorno*/
   border: 2px solid #620aa2;
 }
 
@@ -161,12 +160,12 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /*Transição*/
 }
 
 .formulario-livro button:hover {
   background-color: #8e3cc7;
-  transform: scale(1.02);
+  transform: scale(1.02); /*Redimensionamento*/
 }
 
 .btn-cadastrar {
@@ -178,13 +177,13 @@
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /*Mais transição*/
   display: block;
 }
 
 .btn-cadastrar:hover {
   background-color: #620aa2;
-  transform: scale(1.05);
+  transform: scale(1.05); /*redimensionamento aa*/
 }
 
 
@@ -202,25 +201,24 @@
     font-size: 36px;
 }
 
-/* Grade de livros com 6 por linha */
 .galeria-livros {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 12px; /* menor espaço entre os livros */
+    gap: 12px;
     justify-items: center;
 }
 
 .galeria-livros img {
     width: 100%;
-    max-width: 160px; /* aumentei o tamanho máximo dos livros */
+    max-width: 160px; 
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /*mais transição*/
 }
 
 .galeria-livros img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /*redimensionamento*/
 }
 
 /* FOOTER */
@@ -284,7 +282,7 @@
   .footer-bloco a {
     color: #bbbbbb;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /*transição*/
   }
   
   .footer-bloco a:hover {
@@ -292,7 +290,6 @@
     text-decoration: underline;
   }
   
-  /* Redes Sociais como ícones circulares */
   .icones-sociais {
     display: flex;
     gap: 12px;
@@ -303,7 +300,7 @@
     padding: 10px;
     border-radius: 50%;
     color: #ffffff;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /*transição*/
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -312,7 +309,7 @@
   
   .icones-sociais a:hover {
     background-color: #620AA2;
-    transform: scale(1.1);
+    transform: scale(1.1); /*redimensiona*/
   }
   
   footer .copyright {
@@ -320,18 +317,5 @@
     font-size: 14px;
     color: #999999;
     margin-top: 40px;
-  }
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .rodape-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .footer-secoes {
-      justify-content: center;
-    }
   }
   

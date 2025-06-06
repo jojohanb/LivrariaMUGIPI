@@ -19,6 +19,7 @@ router.post('/cadastrar', async (req, res) => {
   }
 });
 
+//ROTA DE LISTAGEM DE TODOS OS AUTORES
 router.get('/listar', async (req, res) => {
   try{
       const autores = await autorDAO.listarAutores();
@@ -29,3 +30,5 @@ router.get('/listar', async (req, res) => {
 })
 
 module.exports = router;
+
+//ANOTAÇÕES FEITAS

@@ -1,4 +1,4 @@
-/* Copie e cole seu CSS aqui, exatamente igual */
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +20,7 @@ body {
   align-items: center;
   margin: 30px;
   position: relative;
-  z-index: 2;
+  z-index: 2; /*Quanto maior o valor do z-index, mais na frente o elemento fica*/
 }
 
 .topo img {
@@ -39,7 +39,7 @@ body {
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /*outra transição*/
 }
 
 .acesso a:hover {
@@ -74,7 +74,7 @@ body {
   border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /*outra transição*/
 }
 
 .campo-pesquisa button:hover {
@@ -116,7 +116,7 @@ body {
   border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /*transição dnv*/
 }
 
 .texto-grande button:hover {
@@ -152,13 +152,13 @@ body {
   width: 200px;
   height: auto;
   border-radius: 20px;
-  object-fit: cover;
+  object-fit: cover; /* imagem será cortada, Mantém a proporção da imagem.*/
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /*transição*/
 }
 
 .galeria-livros img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /*Aumentando o tamanho do elemento*/
 }
 
 /* RODAPE */
@@ -203,7 +203,7 @@ body {
   color: #E3E3E3;
   text-decoration: none;
   font-weight: 400;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /*mais otra transição*/
 }
 
 .footer-bloco ul li a:hover {
@@ -214,7 +214,7 @@ body {
   margin-right: 15px;
   color: #E3E3E3;
   font-size: 22px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /*mais transição*/
 }
 
 .icones-sociais a:hover {

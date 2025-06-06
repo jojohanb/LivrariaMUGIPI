@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import './livros.css';  
 
+//Meus estados 
 const Livros = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [titulo, setTitulo] = useState('');
   const [autor, setAutor] = useState('');
   const [urlCapa, setUrlCapa] = useState('');
 
+  //Função que é chamada quando o forms é enviado
   const handleCadastro = async (e) => {
-    e.preventDefault();
-
+    e.preventDefault(); //Evita comportamento padão HTML de regarrecar página
+    //Requisição POST para o servidor
+    //Enviando um JSON {nome:autor}
     try {
-      // Envia o nome do autor para o backend
       const response = await fetch('http://localhost:8086/autor/cadastrar', {
         method: 'POST',
         headers: {
@@ -20,6 +22,7 @@ const Livros = () => {
         body: JSON.stringify({ nome: autor }),
       });
 
+      //Tratamento da resposta  
       if (!response.ok) {
         throw new Error('Erro ao cadastrar autor');
       }
@@ -27,9 +30,6 @@ const Livros = () => {
       const autorCadastrado = await response.json();
       console.log('Autor cadastrado:', autorCadastrado);
 
-      // Aqui você pode depois enviar o livro junto, com o autor cadastrado, se quiser
-
-      // Limpar os campos
       setTitulo('');
       setAutor('');
       setUrlCapa('');
@@ -45,7 +45,6 @@ const Livros = () => {
       {/* Topo */}
       <div className="topo">
         <div>
-          {/* Logo se quiser */}
         </div>
         <div className="acesso">
           <a href="./login">Login</a>
@@ -55,7 +54,7 @@ const Livros = () => {
         </div>
       </div>
 
-      {/* Seção de destaque do livro */}
+      {/* Seção de livro */}
       <section className="destaque-livro">
         <div className="imagem-livro">
           <div className="fundo-roxo"></div>
@@ -135,8 +134,6 @@ const Livros = () => {
           <img src="https://th.bing.com/th/id/OIP.XJIum7R-v-d1xFg5Dg4BxQHaKE?w=500&h=680&rs=1&pid=ImgDetMain" alt="" />
           <img src="https://marketplace.canva.com/EAD0UFx27hs/1/0/512w/canva-siena-ilustra%C3%A7%C3%A3o-de-napole%C3%A3o-capa-de-livro-wPahEVwVXZY.jpg" alt="" />
           <img src="https://www.saraivaconteudo.com.br/capas/02/download-os-vandalos-a-historia-e-o-legado-dos-barbaros-mais-famosos-da-antiguidade-charles-river-editors-ler-online-pdf.jpg" alt="" />
-          {/* Imagens dos livros existentes */}
-          {/* ... seu código de imagens aqui ... */}
         </div>
       </div>
 

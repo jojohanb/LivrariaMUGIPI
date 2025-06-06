@@ -2,13 +2,6 @@
   background-color: #390e4e;
 }
 
-/* .img-redonda {
-  width: 50px; 
-  height: 50px; 
-  object-fit: cover;
-  border-radius: 50%;
-} */
-
 
 .topo {
   display: flex;
@@ -29,7 +22,7 @@
   color: #4f287c;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /*Aqui faz a animação das cores*/
 }
 
 .acesso a:hover {
@@ -52,15 +45,15 @@
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: hidden; /*Esconde o conteudo extra*/
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; /*Faz os blocos terem animações*/
+  transition: transform 0.3s ease;  /*Mais outra transição*/
   position: relative;
 }
 
 
 .bloco:hover {
-  transform: translateY(-5px); /*Faz os blocos terem animação*/
+  transform: translateY(-5px); /*diminuindo o tamanho do elemento*/
 }
 
 .icones {
@@ -73,7 +66,7 @@
   margin-left: 10px;
   color: #8525a4;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.3s; /*Mais outra transição*/
 }
 
 .icones i:hover {
@@ -83,7 +76,7 @@
 .bloco img {
   width: 200px;
   height: auto;
-  object-fit: cover;
+  object-fit: cover; /*Aqui a imagem será cortada para preencher totalmente a caixa, mantendo a proporção*/
 }
 
 .sinopse {
@@ -146,8 +139,8 @@
 
 .footer-bloco ul li a {
   color: #562078;
-  text-decoration: none;
-  transition: color 0.3s;
+  text-decoration: none; 
+  transition: color 0.3s;/*outra transição*/
 }
 
 .footer-bloco ul li a:hover {
@@ -158,7 +151,7 @@
   margin-right: 12px;
   color: #501b7c;
   font-size: 1.2rem;
-  transition: color 0.3s;
+  transition: color 0.3s; /*outra transição*/
 }
 
 .icones-sociais a:hover {

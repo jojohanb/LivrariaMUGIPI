@@ -17,6 +17,7 @@ const cadastrarAutor = async function (nome) {
   }
 };
 
+//Responsavel por listar os autores do banco de dados
 const listarAutores = async function () {
     const sql = 'SELECT id_autor, nome FROM AUTORES';
     try{

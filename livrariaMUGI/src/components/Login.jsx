@@ -20,7 +20,7 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Formulário e imagem lado a lado */}
+      {/* Formulário  */}
       <div className="forms-img">
         <div className="formulario">
           <h1>Faça seu login</h1>

@@ -2,9 +2,6 @@ import React from "react";
 import "./inicio.css";
 import imagem_6 from '../assets/image 6 (1).png';
 
-// FontAwesome já pode ser incluído no index.html ou via npm/yarn no projeto React
-// Aqui só usamos as classes normalmente
-
 export default function Inicio() {
   return (
     <>

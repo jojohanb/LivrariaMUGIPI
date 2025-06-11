@@ -29,6 +29,7 @@ router.get('/listar', async (req, res) => {
   }
 })
 
+
 module.exports = router;
 
 //ANOTAÇÕES FEITAS

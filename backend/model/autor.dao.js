@@ -29,5 +29,38 @@ const listarAutores = async function () {
     }
     
 }
+//Responsavel por atualizar os autores do banco de dados
+const atualizarAutores = async function (nome, id_autor) {
+  try {
+    const sql = 'UPDATE autores SET nome = $1 WHERE id_autor = $2 RETURNING *';
+    const valores = [nome, id_autor];
+    const resultado = await db.query(sql, valores);
+    return resultado.rows[0];
+  } catch (erro) {
+    console.error('Erro ao atualizar na função atualizarAutor do model:', erro.message, erro.stack);
+    throw erro;
+  }
+};
 
-module.exports = {cadastrarAutor, listarAutores}
+//Responsavel por deletar os autores do banco de dados
+const deletarAutores = async function (nome) {
+    try {
+    const sql = 'DELETE FROM autores WHERE nome=$1 RETURNING *';
+    const valores = [nome];
+    const resultado = await db.query(sql, valores);
+
+    if (resultado.rowCount === 0){
+      console.log('Nenhum autor encontrado com esse nome')
+      return null;
+    }
+    console.log('Autor deletado com sucesso:',resultado.rows[0]);
+    return resultado.rows[0]
+  } catch (erro) {
+    console.error('Erro ao deletar autor na função de deletarAutor do model:', erro.message, erro.stack);
+    throw erro;
+  }
+  
+}
+
+
+module.exports = { cadastrarAutor, listarAutores, atualizarAutores, deletarAutores }

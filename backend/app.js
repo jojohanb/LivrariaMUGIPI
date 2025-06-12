@@ -6,7 +6,7 @@ const port = 8086;
 const cors = require('cors');
 app.use(cors());
 
-//importa o módulo de rotas de autor (/cadastrar)
+//importa o módulo de rotas de autor 
 const autorController = require ('./controller/autor.controller');
 
 app.use(express.json()); // para aceitar JSON no corpo da requisição

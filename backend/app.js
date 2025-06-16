@@ -15,3 +15,6 @@ app.use('/autor', autorController); // monta a rota ex:/autor/cadastrar
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}...`);
 });
+
+
+

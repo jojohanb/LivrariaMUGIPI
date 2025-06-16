@@ -179,6 +179,20 @@ const Livros = () => {
               onChange={(e) => setUrlCapa(e.target.value)}
               required
             />
+            <input
+              type="text"
+              placeholder="Editora"
+              // value={urlCap}
+              // onChange={(e) => setUrlCapa(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Categoria"
+              // value={urlCap}
+              // onChange={(e) => setUrlCapa(e.target.value)}
+              required
+            />
             <button type="submit">Cadastrar</button>
             <button type="button" onClick={handleAtualizarAutor}>Editar</button>
             <button type="button" onClick={handleDeletarAutor}>Remover</button>

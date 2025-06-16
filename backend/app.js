@@ -10,7 +10,7 @@ app.use(cors());
 const autorController = require ('./controller/autor.controller');
 
 app.use(express.json()); // para aceitar JSON no corpo da requisição
-app.use('/autor', autorController); // monta a rota /autor/cadastrar
+app.use('/autor', autorController); // monta a rota ex:/autor/cadastrar
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}...`);

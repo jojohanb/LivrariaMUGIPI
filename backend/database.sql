@@ -44,7 +44,7 @@ CREATE TABLE ARVORE_CATEGORIA (
     id_subcategoria SERIAL PRIMARY KEY,
     id_categoria INT,
     FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id_categoria)
-);
+);-- Após categoria
 
 CREATE TABLE LIVRO (
     id_livro serial PRIMARY KEY,
@@ -68,7 +68,7 @@ CREATE TABLE LIVRO_AUTORES (
     PRIMARY KEY (id_livro, id_autor),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_autor) REFERENCES AUTORES(id_autor)
-);
+); --Pós autores
 
 CREATE TABLE EMPRESTIMO (
     id_emprestimo serial PRIMARY KEY,

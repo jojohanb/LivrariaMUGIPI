@@ -1,25 +1,63 @@
-# POST http://localhost:8086/autor/cadastrar
+
+# POST http://localhost:8086/editora/cadastrar
 # Content-Type: application/json
 
 # {
-#   "nome": "Maria Oliveira"
+#   "nome_editora": "AmandaEdits"
 # }
-# POST http://localhost:8086/autor/cadastrar
+
+# ### LISTAR
+# GET http://localhost:8086/editora/listar
+
+### DELETAR
+# DELETE http://localhost:8086/editora/deletar
 # Content-Type: application/json
 
 # {
-#   "nome": "Ta indo meu deus"
+#   "nome_editora": "AlephEdits"
 # }
 
-# POST http://localhost:8086/autor/cadastrar
+# ### ATUALIZAR
+# PUT http://localhost:8086/editora/2
 # Content-Type: application/json
 
 # {
-#   "nome": "José"
+#   "nome_editora": "NovaEditoraAtualizada"
 # }
-POST http://localhost:8086/autor/cadastrar
+
+
+
+# POST http://localhost:8086/categoria/cadastrar
+# Content-Type: application/json
+
+# {
+#   "nome_categoria": "fantasia"
+# }
+
+### LISTAR
+# GET http://localhost:8086/categoria/listar
+
+## DELETAR
+# DELETE http://localhost:8086/categoria/deletar
+# Content-Type: application/json
+
+# {
+#   "nome_categoria": "terror"
+# }
+
+# ### ATUALIZAR
+# PUT http://localhost:8086/categoria/2
+# Content-Type: application/json
+
+# {
+#   "nome_categoria": "NovacategoriaAtualizada"
+# }
+
+# GET http://localhost:8086/categoria/listar
+
+PUT http://localhost:8086/categoria/2
 Content-Type: application/json
 
 {
-  "nome": "Itamar"
+  "nome_categoria": "NovaCategoriaAtualizada"
 }

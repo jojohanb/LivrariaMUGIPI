@@ -33,12 +33,12 @@ CREATE TABLE PESSOA (
 CREATE TABLE EDITORA (
     id_editora SERIAL PRIMARY KEY,
     nome_editora VARCHAR(100) NOT NULL
-); --FAZER PRIMEIRO
+); --FEITO
 
 CREATE TABLE CATEGORIA (
     id_categoria SERIAL PRIMARY KEY,
     nome_categoria VARCHAR(100) NOT NULL
-); --FAZER PRIMEIRO
+); --FEITO
 
 CREATE TABLE ARVORE_CATEGORIA (
     id_subcategoria SERIAL PRIMARY KEY,
@@ -55,7 +55,7 @@ CREATE TABLE LIVRO (
     edicao VARCHAR(20),
     id_categoria INT REFERENCES CATEGORIA(id_categoria),
     id_subcategoria INT REFERENCES ARVORE_CATEGORIA(id_subcategoria)
-);
+); --Dá pra fazer 
 
 CREATE TABLE AUTORES (
     id_autor SERIAL PRIMARY KEY,
@@ -68,7 +68,7 @@ CREATE TABLE LIVRO_AUTORES (
     PRIMARY KEY (id_livro, id_autor),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_autor) REFERENCES AUTORES(id_autor)
-); --Pós autores
+); --Pós livro
 
 CREATE TABLE EMPRESTIMO (
     id_emprestimo serial PRIMARY KEY,
@@ -82,7 +82,7 @@ CREATE TABLE EMPRESTIMO (
 CREATE TABLE CURSO (
     id_curso SERIAL PRIMARY KEY,
     nome_curso VARCHAR(30)
-); 
+); --FAZER
 
 CREATE TABLE CURSO_PESSOA (
     ra_pessoa INT,

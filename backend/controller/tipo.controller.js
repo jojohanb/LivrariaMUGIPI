@@ -15,7 +15,7 @@ router.post('/cadastrar', async (req, res) => {
   }
 });
 
-// ROTA DE LISTAGEM DE TODAS AS EDITORAS
+// ROTA DE LISTAGEM DE TODOS OS TIPOS
 router.get('/listar', async (req, res) => {
   try {
     const tipo = await tipoDAO.listarTipo();
@@ -25,7 +25,7 @@ router.get('/listar', async (req, res) => {
   }
 });
 
-// ROTA DE ATUALIZAR AS EDITORAS
+// ROTA DE ATUALIZAR OS TIPOS
 router.put('/:id', async (req, res) => {
   const tipo_id = parseInt(req.params.id);
   const { descricao } = req.body;
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// ROTA DE DELETAR AS EDITORAS
+// ROTA DE DELETAR OS TIPOS
 router.delete('/deletar', async (req, res) => {
   try {
     const { tipo_id } = req.body;

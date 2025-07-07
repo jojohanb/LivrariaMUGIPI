@@ -1,10 +1,4 @@
-
-
- //ANOTAÇÕES FEITAS
-
-// Esse código define uma rota de API usando Express.js para cadastrar autores em um sistema. 
 const express = require('express');
-// ajuda a organizar as rotas por arquivos
 const router = express.Router();
 const autorDAO = require('../model/autor.dao');
 
@@ -15,10 +9,8 @@ router.post('/cadastrar', async (req, res) => {
       return res.status(400).json({ 'error': 'Nome faltando no autor' });
     }
     const autorCriado = await autorDAO.cadastrarAutor(req.body.nome.trim());
-    // Responde o cliente se der certo com status 201
     res.status(201).json({ 'message': 'ok' });
   } catch (erro) {
-    // Se der erro, responde com o status erro 500
     res.status(500).json({ erro: 'Erro na função de cadastro de autor do controller' });
   }
 });
@@ -71,3 +63,5 @@ router.delete('/deletar', async (req, res) => {
 });
 
 module.exports = router;
+
+//FEITO

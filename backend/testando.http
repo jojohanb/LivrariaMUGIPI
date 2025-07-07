@@ -1,63 +1,47 @@
-
-# POST http://localhost:8086/editora/cadastrar
-# Content-Type: application/json
-
-# {
-#   "nome_editora": "AmandaEdits"
-# }
-
-# ### LISTAR
-# GET http://localhost:8086/editora/listar
-
-### DELETAR
-# DELETE http://localhost:8086/editora/deletar
-# Content-Type: application/json
-
-# {
-#   "nome_editora": "AlephEdits"
-# }
-
-# ### ATUALIZAR
-# PUT http://localhost:8086/editora/2
-# Content-Type: application/json
-
-# {
-#   "nome_editora": "NovaEditoraAtualizada"
-# }
-
-
-
-# POST http://localhost:8086/categoria/cadastrar
-# Content-Type: application/json
-
-# {
-#   "nome_categoria": "fantasia"
-# }
-
-### LISTAR
-# GET http://localhost:8086/categoria/listar
-
-## DELETAR
-# DELETE http://localhost:8086/categoria/deletar
-# Content-Type: application/json
-
-# {
-#   "nome_categoria": "terror"
-# }
-
-# ### ATUALIZAR
-# PUT http://localhost:8086/categoria/2
-# Content-Type: application/json
-
-# {
-#   "nome_categoria": "NovacategoriaAtualizada"
-# }
-
-# GET http://localhost:8086/categoria/listar
-
-PUT http://localhost:8086/categoria/2
+### CADASTRAR
+POST http://localhost:8086/pessoa/cadastrar
 Content-Type: application/json
 
 {
-  "nome_categoria": "NovaCategoriaAtualizada"
+  "ra_pessoa": 1234567,
+  "tipo_id": 1,
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "telefone": "11999998888",
+  "data_nascimento": "2001-05-20",
+  "login": "joaosilva",
+  "senha": "senha123"
 }
+
+### LISTAR
+GET http://localhost:8086/pessoa/listar
+
+### ATUALIZAR
+PUT http://localhost:8086/pessoa/1234567
+Content-Type: application/json
+
+{
+  "nome": "João da Silva Oliveira",
+  "email": "joaosilva@email.com",
+  "telefone": "11999990000",
+  "data_nascimento": "2001-05-20",
+  "login": "joao.silva",
+  "senha": "novaSenha123"
+}
+
+### DELETAR
+DELETE http://localhost:8086/pessoa/deletar
+Content-Type: application/json
+
+{
+  "ra_pessoa": 1234567
+}
+
+# POST http://localhost:8086/tipo/cadastrar
+# Content-Type: application/json
+
+# {
+#   "tipo_id": 1,
+#   "descricao": "Digital"
+# }
+

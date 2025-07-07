@@ -6,3 +6,4 @@ class Editora {
 }
 
 module.exports = Editora;
+//FEITO

@@ -9,7 +9,7 @@ router.post('/cadastrar', async (req, res) => {
       return res.status(400).json({ error: 'Nome da editora é obrigatório.' });
     }
     const editoraCriada = await editoraDAO.cadastrarEditora(req.body.nome_editora.trim());
-    res.status(201).json({ message: 'Editora criada com sucesso!', editora: editoraCriada }); // MELHORIA
+    res.status(201).json({ message: 'Editora criada com sucesso!', editora: editoraCriada }); 
   } catch (erro) {
     res.status(500).json({ erro: 'Erro na função de cadastro de editora do controller.' });
   }
@@ -63,3 +63,5 @@ router.delete('/deletar', async (req, res) => {
 });
 
 module.exports = router;
+
+//FEITO

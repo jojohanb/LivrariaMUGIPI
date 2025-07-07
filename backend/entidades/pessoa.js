@@ -1,5 +1,5 @@
 class Pessoa {
-  constructor(ra_pessoa = null, tipo_id, nome, email, telefone, data_nascimento, login, senha) {
+  constructor(ra_pessoa, tipo_id, nome, email, telefone, data_nascimento, login, senha) {
     this.ra_pessoa = ra_pessoa;
     this.tipo_id = tipo_id;
     this.nome = nome;
@@ -12,3 +12,4 @@ class Pessoa {
 }
 
 module.exports = Pessoa;
+//FEITO

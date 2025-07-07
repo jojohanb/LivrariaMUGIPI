@@ -6,7 +6,7 @@ const cadastrarEditora = async function (nome_editora) {
     const sql = 'INSERT INTO editora (nome_editora) VALUES ($1) RETURNING *';
     const valores = [nome_editora];
     const resultado = await db.query(sql, valores);
-    return resultado.rows[0]; // CORRIGIDO: retorna a editora criada
+    return resultado.rows[0];
   } catch (erro) {
     console.error('Erro ao cadastrar na função cadastrarEditora do model:', erro.message, erro.stack);
     throw erro;
@@ -58,9 +58,5 @@ const deletarEditora = async function (nome_editora) {
   }
 }
 
-module.exports = {
-  cadastrarEditora,
-  listarEditora,
-  atualizarEditora,
-  deletarEditora
-};
+module.exports = { cadastrarEditora, listarEditora, atualizarEditora, deletarEditora };
+//FEITO

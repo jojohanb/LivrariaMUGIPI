@@ -6,3 +6,4 @@ class Tipo {
 }
 
 module.exports = Tipo;
+//FEITO

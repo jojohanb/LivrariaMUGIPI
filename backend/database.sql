@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS CATEGORIA;
 CREATE TABLE TIPO (
     tipo_id INT PRIMARY KEY,
     descricao VARCHAR(100) NOT NULL
-); -- Dá pra fazer 
+); -- FEITO
 
 CREATE TABLE PESSOA (
     ra_pessoa INT PRIMARY KEY,
@@ -28,7 +28,7 @@ CREATE TABLE PESSOA (
     data_nascimento DATE,
     login VARCHAR UNIQUE,
     senha VARCHAR
-); -- Precisa do tipo
+); -- FEITO
 
 CREATE TABLE EDITORA (
     id_editora SERIAL PRIMARY KEY,

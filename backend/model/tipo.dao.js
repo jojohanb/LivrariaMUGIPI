@@ -1,66 +1,62 @@
 const db = require("../config/database");
-//Responsável por inserir um novo tipo no banco de dados 
-const cadastrarTipo = async function (descricao) {
+
+// Cadastrar tipo
+const cadastrarTipo = async function (tipo_id, descricao) {
   try {
-    // console.log('Tentando cadastrar autor:', novo_autor);
-    const sql = 'INSERT INTO tipo (descricao) VALUES ($1) RETURNING *';
-    const valores = [descricao];
-    //Executa o comando SQL usando a conexão do banco.
-    //Executa uma consulta
+    const sql = 'INSERT INTO tipo (tipo_id, descricao) VALUES ($1, $2) RETURNING *';
+    const valores = [tipo_id, descricao];
     const resultado = await db.query(sql, valores);
-    // console.log('Resultado da inserção:', resultado.rows[0]);
-    //A função retorna esse tipo criado para ser usado na resposta da API.
-    return ;
+    return resultado.rows[0];
   } catch (erro) {
-    console.error('Erro ao cadastrar na função cadastrarTipo do model:', erro.message, erro.stack);
+    console.error('Erro ao cadastrar tipo:', erro.message, erro.stack);
     throw erro;
   }
 };
 
-//Responsavel por listar os autores do banco de dados
-const listarTipos = async function () {
-    const sql = 'SELECT tipo_id, descricao FROM TIPO';
-    try{
-      const resultado = await db.query(sql);
-      return resultado.rows;
-    } catch(erro){
-      console.error('Erro ao listar os tipos', erro.message, erro.stack);
-      throw erro;
-    }
-    
-}
-//Responsavel por atualizar os autores do banco de dados
-const atualizarTipo = async function (descricao, tipo_id) {
+
+
+// Listar todos os tipos
+const listarTipos = async () => {
+  try {
+    const sql = 'SELECT tipo_id, descricao FROM tipo';
+    const resultado = await db.query(sql);
+    return resultado.rows;
+  } catch (erro) {
+    console.error('Erro ao listar os tipos:', erro.message, erro.stack);
+    throw erro;
+  }
+};
+
+// Atualizar tipo
+const atualizarTipo = async (descricao, tipo_id) => {
   try {
     const sql = 'UPDATE tipo SET descricao = $1 WHERE tipo_id = $2 RETURNING *';
     const valores = [descricao, tipo_id];
     const resultado = await db.query(sql, valores);
     return resultado.rows[0];
   } catch (erro) {
-    console.error('Erro ao atualizar na função atualizarTipo do model:', erro.message, erro.stack);
+    console.error('Erro ao atualizar tipo:', erro.message, erro.stack);
     throw erro;
   }
 };
 
-//Responsavel por deletar os autores do banco de dados
-const deletarTipo = async function (descricao) {
-    try {
-    const sql = 'DELETE FROM tipo WHERE descricao=$1 RETURNING *';
-    const valores = [descricao];
+// Deletar tipo por ID
+const deletarTipo = async (tipo_id) => {
+  try {
+    const sql = 'DELETE FROM tipo WHERE tipo_id = $1 RETURNING *';
+    const valores = [tipo_id];
     const resultado = await db.query(sql, valores);
 
-    if (resultado.rowCount === 0){
-      console.log('Nenhum tipo encontrado com essa descricao')
+    if (resultado.rowCount === 0) {
       return null;
     }
-    console.log('Tipo deletado com sucesso:',resultado.rows[0]);
-    return resultado.rows[0]
+
+    return resultado.rows[0];
   } catch (erro) {
-    console.error('Erro ao deletar tipo na função de deletarTipo do model:', erro.message, erro.stack);
+    console.error('Erro ao deletar tipo:', erro.message, erro.stack);
     throw erro;
   }
-  
-}
+};
 
-
-module.exports = { cadastrarTipo, listarTipos, atualizarTipo, deletarTipo }
+module.exports = { cadastrarTipo, listarTipos, atualizarTipo, deletarTipo };
+//FEITO

@@ -1,47 +1,47 @@
-### CADASTRAR
-POST http://localhost:8086/pessoa/cadastrar
+# Cadastrar
+POST http://localhost:8086/curso/cadastrar
 Content-Type: application/json
 
 {
-  "ra_pessoa": 1234567,
-  "tipo_id": 1,
-  "nome": "João Silva",
-  "email": "joao@email.com",
-  "telefone": "11999998888",
-  "data_nascimento": "2001-05-20",
-  "login": "joaosilva",
-  "senha": "senha123"
+  "nome_curso":"engenharia da pesca"
 }
 
-### LISTAR
-GET http://localhost:8086/pessoa/listar
+###
 
-### ATUALIZAR
-PUT http://localhost:8086/pessoa/1234567
+# Listar
+GET http://localhost:8086/curso/listar
+
+###
+
+# Atualizar
+PUT http://localhost:8086/curso/1
 Content-Type: application/json
 
 {
-  "nome": "João da Silva Oliveira",
-  "email": "joaosilva@email.com",
-  "telefone": "11999990000",
-  "data_nascimento": "2001-05-20",
-  "login": "joao.silva",
-  "senha": "novaSenha123"
+  "nome_curso": "Engenharia das top"
 }
 
-### DELETAR
-DELETE http://localhost:8086/pessoa/deletar
+###
+
+# Deletar
+DELETE http://localhost:8086/curso/deletar
 Content-Type: application/json
 
 {
-  "ra_pessoa": 1234567
+  "nome_curso": "Engenharia das top"
 }
 
-# POST http://localhost:8086/tipo/cadastrar
+# # Cadastrar
+# POST http://localhost:8086/categoria/cadastrar
 # Content-Type: application/json
 
 # {
-#   "tipo_id": 1,
-#   "descricao": "Digital"
+#   "nome_categoria": "comedia"
 # }
 
+###
+
+# Listar
+GET http://localhost:8086/categoria/listar
+
+###

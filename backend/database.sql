@@ -44,7 +44,7 @@ CREATE TABLE ARVORE_CATEGORIA (
     id_subcategoria SERIAL PRIMARY KEY,
     id_categoria INT,
     FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id_categoria)
-);-- Dá pra fazer 
+);-- FEITO
 
 CREATE TABLE LIVRO (
     id_livro serial PRIMARY KEY,
@@ -55,7 +55,7 @@ CREATE TABLE LIVRO (
     edicao VARCHAR(20),
     id_categoria INT REFERENCES CATEGORIA(id_categoria),
     id_subcategoria INT REFERENCES ARVORE_CATEGORIA(id_subcategoria)
-); --Precisa da subcategoria
+); --Dá pra fazer
 
 CREATE TABLE AUTORES (
     id_autor SERIAL PRIMARY KEY,
@@ -77,12 +77,12 @@ CREATE TABLE EMPRESTIMO (
     data_emprestimo DATE NOT NULL,
     data_devolucao DATE,
     historico VARCHAR(255)
-); --Precisa de pessoa e livro
+); --Precisa de livro
 
 CREATE TABLE CURSO (
     id_curso SERIAL PRIMARY KEY,
     nome_curso VARCHAR(30)
-); --Dá pra fazer
+); -- FEITO
 
 CREATE TABLE CURSO_PESSOA (
     ra_pessoa INT,
@@ -91,7 +91,7 @@ CREATE TABLE CURSO_PESSOA (
     PRIMARY KEY (ra_pessoa, id_curso),
     FOREIGN KEY (ra_pessoa) REFERENCES PESSOA(ra_pessoa),
     FOREIGN KEY (id_curso) REFERENCES CURSO(id_curso)
-); --Precisa de pessoa
+); -- Dá pra fazer
 
 CREATE TABLE DIVIDAS (
     id_divida SERIAL PRIMARY KEY,
@@ -100,7 +100,7 @@ CREATE TABLE DIVIDAS (
     data_vencimento DATE,
     status VARCHAR(50),
     id_livro INT REFERENCES LIVRO(id_livro)
-); --Precisa de pessoa e livro
+); --Precisa de livro
 
 CREATE TABLE LIVRO_TEM_EDITORA (
     id_livro INT,

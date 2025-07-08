@@ -55,7 +55,7 @@ CREATE TABLE LIVRO (
     edicao VARCHAR(20),
     id_categoria INT REFERENCES CATEGORIA(id_categoria),
     id_subcategoria INT REFERENCES ARVORE_CATEGORIA(id_subcategoria)
-); --Dá pra fazer
+); -- FEITO
 
 CREATE TABLE AUTORES (
     id_autor SERIAL PRIMARY KEY,
@@ -68,7 +68,7 @@ CREATE TABLE LIVRO_AUTORES (
     PRIMARY KEY (id_livro, id_autor),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_autor) REFERENCES AUTORES(id_autor)
-); --Precisa de livro
+); -- Dá pra fazer
 
 CREATE TABLE EMPRESTIMO (
     id_emprestimo serial PRIMARY KEY,
@@ -77,12 +77,12 @@ CREATE TABLE EMPRESTIMO (
     data_emprestimo DATE NOT NULL,
     data_devolucao DATE,
     historico VARCHAR(255)
-); --Precisa de livro
+); -- FEITO
 
 CREATE TABLE CURSO (
     id_curso SERIAL PRIMARY KEY,
     nome_curso VARCHAR(30)
-); -- FEITO
+); -- Dá pra fazer
 
 CREATE TABLE CURSO_PESSOA (
     ra_pessoa INT,
@@ -100,7 +100,7 @@ CREATE TABLE DIVIDAS (
     data_vencimento DATE,
     status VARCHAR(50),
     id_livro INT REFERENCES LIVRO(id_livro)
-); --Precisa de livro
+); -- FEITO
 
 CREATE TABLE LIVRO_TEM_EDITORA (
     id_livro INT,
@@ -108,7 +108,7 @@ CREATE TABLE LIVRO_TEM_EDITORA (
     PRIMARY KEY (id_livro, id_editora),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_editora) REFERENCES EDITORA(id_editora)
-); --Precisa de livro
+); -- Dá pra fazer
 
 CREATE TABLE LIVRO_TEM_CATEGORIA (
     id_livro INT,
@@ -116,4 +116,8 @@ CREATE TABLE LIVRO_TEM_CATEGORIA (
     PRIMARY KEY (id_livro, id_categoria),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id_categoria)
-); --Precisa de livro
+); -- Dá pra fazer
+
+-- Faltam no total 5/14, dessas 14, 5 são tabelas de relações(não sei se serão necessárias).
+-- Requisitos para terminar o trabalho, falta fazer todos os testes, terminar a interface e conectar com o bd.
+-- E a documentação do trabalho

@@ -1,47 +1,130 @@
-# Cadastrar
-POST http://localhost:8086/curso/cadastrar
+POST http://localhost:8086/livro/cadastrar
 Content-Type: application/json
 
 {
-  "nome_curso":"engenharia da pesca"
+  "isbn": "9788532530790",
+  "titulo": "Quimica do monstro",
+  "id_editora": 3,
+  "qtd_disponivel": 10,
+  "edicao": "2ª edição",
+  "id_categoria": 2,
+  "id_subcategoria": 3
 }
 
 ###
 
-# Listar
-GET http://localhost:8086/curso/listar
-
-###
-
-# Atualizar
-PUT http://localhost:8086/curso/1
-Content-Type: application/json
-
-{
-  "nome_curso": "Engenharia das top"
-}
-
-###
-
-# Deletar
-DELETE http://localhost:8086/curso/deletar
-Content-Type: application/json
-
-{
-  "nome_curso": "Engenharia das top"
-}
-
-# # Cadastrar
-# POST http://localhost:8086/categoria/cadastrar
+GET http://localhost:8086/pessoa/listar
+# ###
+# PUT http://localhost:8086/livro/3
 # Content-Type: application/json
 
 # {
-#   "nome_categoria": "comedia"
+#   "isbn": "9788532530780",
+#   "titulo": "Introdução à Programação - Atualizado",
+#   "id_editora": 3,
+#   "qtd_disponivel": 15,
+#   "edicao": "3ª edição",
+#   "id_categoria": 2,
+#   "id_subcategoria": 3
+# }
+# ###
+# DELETE http://localhost:8086/livro/deletar
+# Content-Type: application/json
+
+# {
+#   "id_livro": 3
 # }
 
+# ###
+# POST http://localhost:8086/editora/cadastrar
+# Content-Type: application/json
+
+# {
+#  "nome_editora":"Everti richerdi"
+# }
+
+# ###
+# GET http://localhost:8086/categoria/listar
+
+# ###
+# POST http://localhost:8086/arvore_categoria/cadastrar
+# Content-Type: application/json
+
+# {
+#  "id_categoria":4
+# }
+
+# ###
+# GET http://localhost:8086/arvore_categoria/listar
+###
+POST http://localhost:8086/emprestimo/cadastrar
+Content-Type: application/json
+
+{
+  "ra_pessoa": 1234567,
+  "id_livro": 4,
+  "data_emprestimo": "2025-07-07",
+  "data_devolucao": "2025-07-14",
+  "historico": "Empréstimo de teste para o livro 4"
+}
 ###
 
-# Listar
-GET http://localhost:8086/categoria/listar
+GET http://localhost:8086/emprestimo/listar
+
 
 ###
+PUT http://localhost:8086/emprestimo/1
+Content-Type: application/json
+
+{
+  "ra_pessoa": 1234567,
+  "id_livro": 5,
+  "data_emprestimo": "2025-07-08",
+  "data_devolucao": "2025-07-15",
+  "historico": "Atualizado: empréstimo agora com outro livro"
+}
+###
+
+
+DELETE http://localhost:8086/emprestimo/deletar
+Content-Type: application/json
+
+{
+  "id_emprestimo": 1
+}
+
+###
+
+### 1. Cadastrar dívida
+POST http://localhost:8086/divida/cadastrar
+Content-Type: application/json
+
+{
+  "ra_pessoa": 1234567,
+  "valor_divida": 45.50,
+  "data_vencimento": "2025-08-01",
+  "status": "Em aberto",
+  "id_livro": 4
+}
+
+### 2. Listar todas as dívidas
+GET http://localhost:8086/divida/listar
+
+### 3. Atualizar dívida (mude o ID conforme o que foi retornado no cadastro)
+PUT http://localhost:8086/divida/1
+Content-Type: application/json
+
+{
+  "valor_divida": 50.00,
+  "data_vencimento": "2025-08-10",
+  "status": "Atrasada"
+}
+
+### 4. Deletar dívida (mude o ID conforme o cadastro)
+DELETE http://localhost:8086/divida/deletar
+Content-Type: application/json
+
+{
+  "id_divida": 1
+}
+

@@ -41,7 +41,7 @@ export default function Inicio() {
       <div className="corpo-dos-livros">
         <h1>LIVROS</h1>
           <div className="campo-pesquisa">
-            <input type="text" placeholder="Pesquisar por título ou autor..." />
+            <input type="text" placeholder="Pesquisar por livros ..." />
             <button>Pesquisar</button>
           </div>
         <div className="galeria-livros">

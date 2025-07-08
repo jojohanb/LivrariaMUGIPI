@@ -5,13 +5,13 @@ const livroDAO = require('../model/livro.dao');
 // Cadastrar livro
 router.post('/cadastrar', async (req, res) => {
   try {
-    const { isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria } = req.body;
+    const { isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa } = req.body;
 
-    if (!isbn || !titulo || !id_editora || !qtd_disponivel || !id_categoria || !id_subcategoria) {
+    if (!isbn || !titulo || !id_editora || !qtd_disponivel || !id_categoria || !id_subcategoria || !url_capa) {
       return res.status(400).json({ erro: 'Campos obrigatórios ausentes.' });
     }
 
-    const livro = await livroDAO.cadastrarLivro(isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria);
+    const livro = await livroDAO.cadastrarLivro(isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa);
     res.status(201).json({ mensagem: 'Livro cadastrado com sucesso.', livro });
   } catch (erro) {
     res.status(500).json({ erro: 'Erro ao cadastrar livro.', detalhes: erro.message });
@@ -31,14 +31,14 @@ router.get('/listar', async (req, res) => {
 // Atualizar livro
 router.put('/:id', async (req, res) => {
   const id_livro = parseInt(req.params.id);
-  const { isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria } = req.body;
+  const { isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa } = req.body;
 
-  if (!isbn || !titulo || !id_editora || !qtd_disponivel || !id_categoria || !id_subcategoria || isNaN(id_livro)) {
+  if (!isbn || !titulo || !id_editora || !qtd_disponivel || !id_categoria || !id_subcategoria || !url_capa || isNaN(id_livro)) {
     return res.status(400).json({ erro: 'Dados inválidos.' });
   }
 
   try {
-    const livroAtualizado = await livroDAO.atualizarLivro(id_livro, isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria);
+    const livroAtualizado = await livroDAO.atualizarLivro(id_livro, isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa);
     if (!livroAtualizado) {
       return res.status(404).json({ mensagem: 'Livro não encontrado.' });
     }

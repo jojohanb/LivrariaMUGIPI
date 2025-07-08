@@ -1,11 +1,11 @@
 const db = require('../config/database');
 
-const cadastrarLivro = async (isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria) => {
+const cadastrarLivro = async (isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa) => {
   try {
     const sql = `
-      INSERT INTO livro (isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria)
-      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
-    const valores = [isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria];
+       INSERT INTO livro (isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`;
+    const valores = [isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa];
     const resultado = await db.query(sql, valores);
     return resultado.rows[0];
   } catch (erro) {
@@ -25,12 +25,12 @@ const listarLivros = async () => {
   }
 };
 
-const atualizarLivro = async (id_livro, isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria) => {
+const atualizarLivro = async (id_livro, isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa) => {
   try {
     const sql = `
-      UPDATE livro SET isbn = $1, titulo = $2, id_editora = $3, qtd_disponivel = $4, edicao = $5, id_categoria = $6, id_subcategoria = $7
-      WHERE id_livro = $8 RETURNING *`;
-    const valores = [isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, id_livro];
+      UPDATE livro SET isbn = $1, titulo = $2, id_editora = $3, qtd_disponivel = $4, edicao = $5, id_categoria = $6, id_subcategoria = $7, url_capa = $8
+      WHERE id_livro = $9 RETURNING *`;
+    const valores = [isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa, id_livro];
     const resultado = await db.query(sql, valores);
     return resultado.rows[0];
   } catch (erro) {

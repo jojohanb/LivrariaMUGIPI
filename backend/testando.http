@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8086/editora/listar
+GET http://localhost:8086/arvore_categoria/listar
 # ###
 # PUT http://localhost:8086/livro/3
 # Content-Type: application/json

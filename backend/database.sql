@@ -53,6 +53,7 @@ CREATE TABLE LIVRO (
     id_editora INT REFERENCES EDITORA(id_editora),
     qtd_disponivel INT NOT NULL,
     edicao VARCHAR(20),
+    url_capa VARCHAR(255),
     id_categoria INT REFERENCES CATEGORIA(id_categoria),
     id_subcategoria INT REFERENCES ARVORE_CATEGORIA(id_subcategoria)
 ); -- FEITO

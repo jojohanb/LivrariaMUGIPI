@@ -12,8 +12,16 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:8086/categoria/cadastrar
+Content-Type: application/json
 
-GET http://localhost:8086/pessoa/listar
+{
+ "nome_categoria": "triste"
+}
+
+###
+
+GET http://localhost:8086/editora/listar
 # ###
 # PUT http://localhost:8086/livro/3
 # Content-Type: application/json
@@ -36,12 +44,7 @@ GET http://localhost:8086/pessoa/listar
 # }
 
 # ###
-# POST http://localhost:8086/editora/cadastrar
-# Content-Type: application/json
 
-# {
-#  "nome_editora":"Everti richerdi"
-# }
 
 # ###
 # GET http://localhost:8086/categoria/listar

@@ -1,5 +1,5 @@
 const db = require('../config/database');
-
+//Responsável por cadastrar livros
 const cadastrarLivro = async (isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa) => {
   try {
     const sql = `
@@ -13,7 +13,7 @@ const cadastrarLivro = async (isbn, titulo, id_editora, qtd_disponivel, edicao, 
     throw erro;
   }
 };
-
+//Responsável por listar livros
 const listarLivros = async () => {
   try {
     const sql = 'SELECT * FROM livro';
@@ -24,7 +24,7 @@ const listarLivros = async () => {
     throw erro;
   }
 };
-
+//Responsável por atualizar livros
 const atualizarLivro = async (id_livro, isbn, titulo, id_editora, qtd_disponivel, edicao, id_categoria, id_subcategoria, url_capa) => {
   try {
     const sql = `
@@ -38,7 +38,7 @@ const atualizarLivro = async (id_livro, isbn, titulo, id_editora, qtd_disponivel
     throw erro;
   }
 };
-
+//Responsável por deletar livros
 const deletarLivro = async (id_livro) => {
   try {
     const sql = 'DELETE FROM livro WHERE id_livro = $1 RETURNING *';
@@ -50,10 +50,6 @@ const deletarLivro = async (id_livro) => {
   }
 };
 
-module.exports = {
-  cadastrarLivro,
-  listarLivros,
-  atualizarLivro,
-  deletarLivro
-};
+module.exports = { cadastrarLivro, listarLivros, atualizarLivro, deletarLivro };
+//Exporta as funcionalidades
 //FEITO

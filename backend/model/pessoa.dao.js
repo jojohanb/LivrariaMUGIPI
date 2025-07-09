@@ -52,10 +52,6 @@ const deletarPessoa = async function (ra_pessoa) {
   }
 };
 
-module.exports = {
-  cadastrarPessoa,
-  listarPessoa,
-  atualizarPessoa,
-  deletarPessoa
-};
+module.exports = { cadastrarPessoa, listarPessoa, atualizarPessoa, deletarPessoa }; 
+//Exporta as funcionalidades
 //FEITO 

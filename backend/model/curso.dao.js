@@ -4,7 +4,7 @@ const cadastrarCurso = async function (nome_curso) {
     const sql = 'INSERT INTO curso (nome_curso) VALUES ($1) RETURNING *';
     const valores = [nome_curso];
     const resultado = await db.query(sql, valores);
-    return resultado.rows[0]; // ← Agora retorna o curso criado
+    return resultado.rows[0]; 
   } catch (erro) {
     console.error('Erro ao cadastrar na função cadastrarCurso do model:', erro.message, erro.stack);
     throw erro;
@@ -58,5 +58,6 @@ const deletarCurso = async function (nome_curso) {
 }
 
 
-module.exports = { cadastrarCurso, listarCurso, atualizarCurso, deletarCurso }
+module.exports = { cadastrarCurso, listarCurso, atualizarCurso, deletarCurso };
+//Exporta as funcionalidades
 //FEITO

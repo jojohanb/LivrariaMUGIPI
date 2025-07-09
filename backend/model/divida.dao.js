@@ -57,10 +57,6 @@ const deletarDivida = async (id_divida) => {
   }
 };
 
-module.exports = {
-  cadastrarDivida,
-  listarDividas,
-  atualizarDivida,
-  deletarDivida,
-};
+module.exports = { cadastrarDivida, listarDividas, atualizarDivida, deletarDivida };
+//Exporta as funcionalidades
 //FEITO

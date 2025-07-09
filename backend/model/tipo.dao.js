@@ -58,5 +58,5 @@ const deletarTipo = async (tipo_id) => {
   }
 };
 
-module.exports = { cadastrarTipo, listarTipos, atualizarTipo, deletarTipo };
+module.exports = { cadastrarTipo, listarTipos, atualizarTipo, deletarTipo };//Exporta as funcionalidades
 //FEITO

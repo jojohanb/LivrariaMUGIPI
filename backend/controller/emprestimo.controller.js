@@ -80,5 +80,5 @@ router.delete('/deletar', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router; // Exporta o router para ser usado no app principal
 //FEITO

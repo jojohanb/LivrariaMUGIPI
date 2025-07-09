@@ -57,5 +57,6 @@ const deletarAutores = async function (nome) {
 }
 
 
-module.exports = { cadastrarAutor, listarAutores, atualizarAutores, deletarAutores }
+module.exports = { cadastrarAutor, listarAutores, atualizarAutores, deletarAutores };
+//Exporta as funcionalidades
 //FEITO

@@ -59,4 +59,5 @@ const deletarEditora = async function (nome_editora) {
 }
 
 module.exports = { cadastrarEditora, listarEditora, atualizarEditora, deletarEditora };
+//Exporta as funcionalidades
 //FEITO

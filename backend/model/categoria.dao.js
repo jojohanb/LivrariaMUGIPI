@@ -60,4 +60,5 @@ const deletarCategoria = async function (nome_categoria) {
 
 
 module.exports = { cadastrarCategoria, listarCategorias, atualizarCategoria, deletarCategoria }
+//Exporta as funcionalidades
 //FEITO

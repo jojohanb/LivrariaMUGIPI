@@ -1,5 +1,5 @@
 const db = require('../config/database');
-
+//Responsável por cadastrar um empréstimo
 const cadastrarEmprestimo = async (ra_pessoa, id_livro, data_emprestimo, data_devolucao, historico) => {
   const sql = `
     INSERT INTO emprestimo (ra_pessoa, id_livro, data_emprestimo, data_devolucao, historico)
@@ -9,13 +9,13 @@ const cadastrarEmprestimo = async (ra_pessoa, id_livro, data_emprestimo, data_de
   const resultado = await db.query(sql, valores);
   return resultado.rows[0];
 };
-
+//Responsável por listar os empréstimos
 const listarEmprestimos = async () => {
   const sql = `SELECT * FROM emprestimo ORDER BY id_emprestimo`;
   const resultado = await db.query(sql);
   return resultado.rows;
 };
-
+//Responsável por atualizar empréstimo
 const atualizarEmprestimo = async (id_emprestimo, ra_pessoa, id_livro, data_emprestimo, data_devolucao, historico) => {
   const sql = `
     UPDATE emprestimo
@@ -26,7 +26,7 @@ const atualizarEmprestimo = async (id_emprestimo, ra_pessoa, id_livro, data_empr
   const resultado = await db.query(sql, valores);
   return resultado.rows[0];
 };
-
+//Responsável por deletar empréstimo
 const deletarEmprestimo = async (id_emprestimo) => {
   const sql = `DELETE FROM emprestimo WHERE id_emprestimo = $1 RETURNING *`;
   const valores = [id_emprestimo];
@@ -34,10 +34,6 @@ const deletarEmprestimo = async (id_emprestimo) => {
   return resultado.rows[0];
 };
 
-module.exports = {
-  cadastrarEmprestimo,
-  listarEmprestimos,
-  atualizarEmprestimo,
-  deletarEmprestimo
-};
+module.exports = {cadastrarEmprestimo, listarEmprestimos, atualizarEmprestimo, deletarEmprestimo};
+//Exporta as funcionalidades
 //FEITO

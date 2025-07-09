@@ -47,10 +47,6 @@ const deletarSubcategoria = async function (id_subcategoria) {
   }
 };
 
-module.exports = {
-  cadastrarSubcategoria,
-  listarSubcategorias,
-  atualizarSubcategoria,
-  deletarSubcategoria
-};
+module.exports = { cadastrarSubcategoria, listarSubcategorias, atualizarSubcategoria, deletarSubcategoria };
+//Exporta as funcionalidades
 //FEITO

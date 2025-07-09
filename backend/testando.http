@@ -2,26 +2,27 @@ POST http://localhost:8086/livro/cadastrar
 Content-Type: application/json
 
 {
-  "isbn": "9788532530790",
-  "titulo": "Quimica do monstro",
-  "id_editora": 3,
+  "isbn": "1234567890123",
+  "titulo": "Livro Teste",
+  "id_editora": 1,
   "qtd_disponivel": 10,
-  "edicao": "2ª edição",
+  "edicao": "1ª",
   "id_categoria": 2,
-  "id_subcategoria": 3
+  "id_subcategoria": 1,
+  "url_capa": "https://example.com/capa.jpg"
 }
 
 ###
-POST http://localhost:8086/categoria/cadastrar
+POST http://localhost:8086/editora/cadastrar
 Content-Type: application/json
 
 {
- "nome_categoria": "triste"
+ "nome_editora": "Everti richerdi"
 }
 
 ###
 
-GET http://localhost:8086/arvore_categoria/listar
+GET http://localhost:8086/livro/listar
 # ###
 # PUT http://localhost:8086/livro/3
 # Content-Type: application/json
@@ -36,12 +37,13 @@ GET http://localhost:8086/arvore_categoria/listar
 #   "id_subcategoria": 3
 # }
 # ###
-# DELETE http://localhost:8086/livro/deletar
-# Content-Type: application/json
+###
+DELETE http://localhost:8086/livro/deletar
+Content-Type: application/json
 
-# {
-#   "id_livro": 3
-# }
+{
+  "id_livro": 6
+}
 
 # ###
 
@@ -98,7 +100,7 @@ Content-Type: application/json
 
 ###
 
-### 1. Cadastrar dívida
+### 
 POST http://localhost:8086/divida/cadastrar
 Content-Type: application/json
 
@@ -110,10 +112,10 @@ Content-Type: application/json
   "id_livro": 4
 }
 
-### 2. Listar todas as dívidas
+### 
 GET http://localhost:8086/divida/listar
 
-### 3. Atualizar dívida (mude o ID conforme o que foi retornado no cadastro)
+### 
 PUT http://localhost:8086/divida/1
 Content-Type: application/json
 
@@ -123,7 +125,7 @@ Content-Type: application/json
   "status": "Atrasada"
 }
 
-### 4. Deletar dívida (mude o ID conforme o cadastro)
+###
 DELETE http://localhost:8086/divida/deletar
 Content-Type: application/json
 

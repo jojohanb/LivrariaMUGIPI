@@ -1,12 +1,10 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './livros.css';
 
 const Livros = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const [capasCadastradas, setCapasCadastradas] = useState([]); // Capa para visualização
+  const [capasCadastradas, setCapasCadastradas] = useState([]);
 
-  // Estados do formulário
   const [isbn, setIsbn] = useState('');
   const [titulo, setTitulo] = useState('');
   const [idEditora, setIdEditora] = useState('');
@@ -16,15 +14,27 @@ const Livros = () => {
   const [idSubcategoria, setIdSubcategoria] = useState('');
   const [urlCapa, setUrlCapa] = useState('');
 
+  // Carregar livros cadastrados ao iniciar
+  useEffect(() => {
+    fetch('http://localhost:8086/livro/listar')
+      .then(response => response.json())
+      .then(data => {
+        if (data.livros) {
+          setCapasCadastradas(data.livros.map(livro => livro.url_capa));
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao buscar livros:', error);
+      });
+  }, []);
+
   const handleCadastrarLivro = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch('http://localhost:8086/livro/cadastrar', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           isbn,
           titulo,
@@ -33,7 +43,7 @@ const Livros = () => {
           edicao,
           id_categoria: parseInt(idCategoria),
           id_subcategoria: parseInt(idSubcategoria),
-          url_capa
+          url_capa: urlCapa
         }),
       });
 
@@ -41,10 +51,7 @@ const Livros = () => {
 
       if (response.ok) {
         alert('Livro cadastrado com sucesso!');
-        // Adiciona a capa na galeria apenas no frontend
         setCapasCadastradas((prev) => [...prev, urlCapa]);
-
-        // Limpar campos
         setIsbn('');
         setTitulo('');
         setIdEditora('');
@@ -66,7 +73,6 @@ const Livros = () => {
 
   return (
     <>
-      {/* TOPO */}
       <div className="topo">
         <div></div>
         <div className="acesso">
@@ -77,7 +83,6 @@ const Livros = () => {
         </div>
       </div>
 
-      {/* DESTAQUE */}
       <section className="destaque-livro">
         <div className="imagem-livro">
           <div className="fundo-roxo"></div>
@@ -100,7 +105,6 @@ const Livros = () => {
         </div>
       </section>
 
-      {/* CORPO DOS LIVROS */}
       <div className="corpo-dos-livros">
         <h1>LIVROS</h1>
 
@@ -122,19 +126,13 @@ const Livros = () => {
           </form>
         )}
 
-        {/* Galeria de capas cadastradas */}
         <div className="galeria-livros">
           {capasCadastradas.map((url, index) => (
             <img key={index} src={url} alt={`Capa cadastrada ${index + 1}`} />
           ))}
-
-          {/* Capas fixas, se quiser manter */}
-          <img src="https://i.pinimg.com/originals/ad/f0/b8/adf0b8235bdda40c2a0bd090698345a1.jpg" alt="" />
-          <img src="https://diadebrilho.com/wp-content/uploads/2012/07/bookthief.jpg" alt="" />
         </div>
       </div>
 
-      {/* RODAPÉ */}
       <footer className="rodape">
         <div className="rodape-container">
           <div className="logo-footer"></div>

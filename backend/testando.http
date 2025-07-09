@@ -22,7 +22,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8086/livro/listar
+GET http://localhost:8086/categoria/listar
 # ###
 # PUT http://localhost:8086/livro/3
 # Content-Type: application/json
@@ -132,4 +132,5 @@ Content-Type: application/json
 {
   "id_divida": 1
 }
+###
 

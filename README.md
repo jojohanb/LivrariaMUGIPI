@@ -48,7 +48,3 @@ Na pasta "livrariaMUGI", temos as seguintes pastas e arquivos:
 # ALUNOS:
 ## Murilo Ramalheira Robetti --> Algumas Tabelas do backend(".dao", "controller"), Script do BD, este arquivo markdown(documentação), conexão com o banco, modelo entidade relacionamento, ligações do modelo entidade-relacionamento.
 ## Giovana Fernanda de Oliveira --> Frontend, Algumas Tabelas do backend(".dao", "controller"), conexão com o banco, testes, modelo entidade relacionamento, ligações do modelo entidade-relacionamento.
-
-<div align="center">
-  <img src="https://i.pinimg.com/564x/f7/7b/74/f77b7414c16daaa5cdff30aff2d7ed29.jpg" >
-</div>

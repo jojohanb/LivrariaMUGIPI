@@ -7,6 +7,7 @@ const Livros = () => {
 
   const [isbn, setIsbn] = useState('');
   const [titulo, setTitulo] = useState('');
+  const [idAutor, setIdAutor] = useState('');
   const [idEditora, setIdEditora] = useState('');
   const [qtdDisponivel, setQtdDisponivel] = useState('');
   const [edicao, setEdicao] = useState('');
@@ -38,6 +39,7 @@ const Livros = () => {
         body: JSON.stringify({
           isbn,
           titulo,
+          id_autor: parseInt(idAutor),
           id_editora: parseInt(idEditora),
           qtd_disponivel: parseInt(qtdDisponivel),
           edicao,
@@ -54,6 +56,7 @@ const Livros = () => {
         setCapasCadastradas((prev) => [...prev, urlCapa]);
         setIsbn('');
         setTitulo('');
+        setIdAutor('');
         setIdEditora('');
         setQtdDisponivel('');
         setEdicao('');
@@ -116,6 +119,7 @@ const Livros = () => {
           <form className="formulario-livro" onSubmit={handleCadastrarLivro}>
             <input type="text" placeholder="ISBN" value={isbn} onChange={(e) => setIsbn(e.target.value)} required />
             <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} required />
+            <input type="text" placeholder="ID do autor" value = {idAutor} onChange={(e) => setIdAutor(e.target.value)} required />
             <input type="number" placeholder="ID da Editora" value={idEditora} onChange={(e) => setIdEditora(e.target.value)} required />
             <input type="number" placeholder="Quantidade Disponível" value={qtdDisponivel} onChange={(e) => setQtdDisponivel(e.target.value)} required />
             <input type="text" placeholder="Edição" value={edicao} onChange={(e) => setEdicao(e.target.value)} />

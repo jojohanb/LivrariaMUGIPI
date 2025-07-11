@@ -50,6 +50,7 @@ CREATE TABLE LIVRO (
     id_livro serial PRIMARY KEY,
     isbn VARCHAR(20) UNIQUE NOT NULL,
     titulo VARCHAR(40) NOT NULL,
+    id_autor INT REFERENCES AUTOR(id_autor),
     id_editora INT REFERENCES EDITORA(id_editora),
     qtd_disponivel INT NOT NULL,
     edicao VARCHAR(20),

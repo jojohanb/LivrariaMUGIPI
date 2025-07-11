@@ -22,7 +22,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8086/categoria/listar
+GET http://localhost:8086/livro/listar
 # ###
 # PUT http://localhost:8086/livro/3
 # Content-Type: application/json
@@ -42,7 +42,7 @@ DELETE http://localhost:8086/livro/deletar
 Content-Type: application/json
 
 {
-  "id_livro": 6
+  "id_livro": 12
 }
 
 # ###
@@ -133,4 +133,70 @@ Content-Type: application/json
   "id_divida": 1
 }
 ###
+POST http://localhost:8086/editora/cadastrar
+Content-Type: application/json
 
+{
+ "nome_editora": "Aleph"
+}
+###
+POST http://localhost:8086/autor/cadastrar
+Content-Type: application/json
+
+{
+  "nome":"joice",
+  "id_autor": 1
+}
+
+
+
+
+
+### Criar vínculo livro-autor
+POST http://localhost:8086/livro_autores/cadastrar
+Content-Type: application/json
+
+{
+  "id_livro": 7,
+  "id_autor": 2
+}
+
+### Buscar todos os vínculos
+GET http://localhost:8086/livro_autores/listar
+
+### Buscar por id_livro específico
+GET http://localhost:8086/livro_autores/1
+
+### Deletar vínculo
+DELETE http://localhost:8086/livro_autores/deletar
+Content-Type: application/json
+
+{
+  "id_livro": 7,
+  "id_autor": 2
+}
+
+### Criar vínculo pessoa-curso
+POST http://localhost:8086/curso_pessoa/cadastrarg
+Content-Type: application/json
+
+{
+  "ra_pessoa": 123,
+  "id_curso": 10,
+  "ano_ingresso": "2022-02-01"
+}
+
+### Buscar todos os vínculos
+GET http://localhost:3000/curso_pessoa
+
+### Buscar por ra_pessoa específico
+GET http://localhost:3000/curso_pessoa/123
+
+### Deletar vínculo
+DELETE http://localhost:3000/curso_pessoa
+Content-Type: application/json
+
+{
+  "ra_pessoa": 123,
+  "id_curso": 10
+}

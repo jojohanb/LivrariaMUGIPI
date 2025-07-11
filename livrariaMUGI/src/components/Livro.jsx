@@ -3,6 +3,7 @@ import './livros.css';
 
 const Livros = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [mostrarFormularioEmprestimo, setMostrarFormularioEmprestimo] = useState(false);
   const [capasCadastradas, setCapasCadastradas] = useState([]);
 
   const [isbn, setIsbn] = useState('');
@@ -14,7 +15,13 @@ const Livros = () => {
   const [idSubcategoria, setIdSubcategoria] = useState('');
   const [urlCapa, setUrlCapa] = useState('');
 
-  // Carregar livros cadastrados ao iniciar
+  // Estados do formulário de empréstimo
+  const [raPessoa, setRaPessoa] = useState('');
+  const [idLivroEmprestimo, setIdLivroEmprestimo] = useState('');
+  const [dataEmprestimo, setDataEmprestimo] = useState('');
+  const [dataDevolucao, setDataDevolucao] = useState('');
+  const [historico, setHistorico] = useState('');
+
   useEffect(() => {
     fetch('http://localhost:8086/livro/listar')
       .then(response => response.json())
@@ -30,7 +37,6 @@ const Livros = () => {
 
   const handleCadastrarLivro = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch('http://localhost:8086/livro/cadastrar', {
         method: 'POST',
@@ -48,7 +54,6 @@ const Livros = () => {
       });
 
       const data = await response.json();
-
       if (response.ok) {
         alert('Livro cadastrado com sucesso!');
         setCapasCadastradas((prev) => [...prev, urlCapa]);
@@ -63,12 +68,22 @@ const Livros = () => {
         setMostrarFormulario(false);
       } else {
         alert(`Erro: ${data.erro || 'Erro ao cadastrar livro'}`);
-        console.error(data.detalhes);
       }
     } catch (error) {
       console.error('Erro ao cadastrar livro:', error);
       alert('Erro na comunicação com o servidor.');
     }
+  };
+
+  const handleEmprestar = (e) => {
+    e.preventDefault();
+    alert('Empréstimo registrado (simulado).');
+    setRaPessoa('');
+    setIdLivroEmprestimo('');
+    setDataEmprestimo('');
+    setDataDevolucao('');
+    setHistorico('');
+    setMostrarFormularioEmprestimo(false);
   };
 
   return (
@@ -86,10 +101,7 @@ const Livros = () => {
       <section className="destaque-livro">
         <div className="imagem-livro">
           <div className="fundo-roxo"></div>
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/I/71UwSHSZRnS.jpg"
-            alt="Capa do livro A Culpa é das Estrelas"
-          />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/71UwSHSZRnS.jpg" alt="Capa do livro A Culpa é das Estrelas" />
         </div>
         <div className="texto-livro">
           <h2>A Culpa é das Estrelas</h2>
@@ -99,11 +111,25 @@ const Livros = () => {
             conhecem em um grupo de apoio...
           </p>
           <div className="botoes">
-            <button className="btn-emprestar">Emprestar</button>
+            <button className="btn-emprestar" onClick={() => setMostrarFormularioEmprestimo(!mostrarFormularioEmprestimo)}>
+              {mostrarFormularioEmprestimo ? 'Fechar Empréstimo' : 'Emprestar'}
+            </button>
             <img src="./Segmented button.png" alt="" />
           </div>
         </div>
       </section>
+
+      {mostrarFormularioEmprestimo && (
+        <form className="formulario-emprestimo" onSubmit={handleEmprestar}>
+          <h3>Formulário de Empréstimo</h3>
+          <input type="number" placeholder="RA da Pessoa" value={raPessoa} onChange={(e) => setRaPessoa(e.target.value)} required />
+          <input type="number" placeholder="ID do Livro" value={idLivroEmprestimo} onChange={(e) => setIdLivroEmprestimo(e.target.value)} required />
+          <input type="date" placeholder="Data de Empréstimo" value={dataEmprestimo} onChange={(e) => setDataEmprestimo(e.target.value)} required />
+          <input type="date" placeholder="Data de Devolução" value={dataDevolucao} onChange={(e) => setDataDevolucao(e.target.value)} />
+          <input type="text" placeholder="Histórico" value={historico} onChange={(e) => setHistorico(e.target.value)} />
+          <button type="submit">Enviar</button>
+        </form>
+      )}
 
       <div className="corpo-dos-livros">
         <h1>LIVROS</h1>
@@ -136,7 +162,6 @@ const Livros = () => {
       <footer className="rodape">
         <div className="rodape-container">
           <div className="logo-footer"></div>
-
           <div className="footer-secoes">
             <div className="footer-bloco">
               <h3>Redes Sociais</h3>
@@ -145,7 +170,6 @@ const Livros = () => {
                 <a href="#"><i className="fab fa-facebook-f"></i></a>
               </div>
             </div>
-
             <div className="footer-bloco">
               <h3>Acesso</h3>
               <ul>
@@ -155,7 +179,6 @@ const Livros = () => {
                 <li><a href="/livro">Livro</a></li>
               </ul>
             </div>
-
             <div className="footer-bloco">
               <h3>Parcerias</h3>
               <ul>

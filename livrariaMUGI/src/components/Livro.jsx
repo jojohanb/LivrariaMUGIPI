@@ -209,7 +209,7 @@ const Livros = () => {
             <div key={livro.id_livro} className="livro-item">
               <img src={livro.url_capa} alt={livro.titulo} />
               <button className="btn-deletar" onClick={() => handleDeletarLivro(livro.id_livro)} title="Deletar livro">
-                🗑️
+                 ✖
               </button>
             </div>
           ))}

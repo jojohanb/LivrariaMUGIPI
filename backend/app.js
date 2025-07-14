@@ -19,6 +19,8 @@ const emprestimoController = require('./controller/emprestimo.controller');
 const dividaController = require('./controller/divida.controller');
 const cursoPessoaController = require('./controller/curso_pessoa.controller');
 const livroAutoresController = require('./controller/livro_autores.controller');
+const livroCategoriaController = require('./controller/livro_tem_categoria.controller');
+const livroEditoraController = require('./controller/livro_tem_editora.controller');
 
 // Define os caminhos base para cada conjunto de rotas
 app.use('/autor', autorController);
@@ -33,6 +35,8 @@ app.use('/emprestimo', emprestimoController);
 app.use('/divida', dividaController);
 app.use('/livro_autores', livroAutoresController);
 app.use('/curso_pessoa', cursoPessoaController);
+app.use('/livro_categoria', livroCategoriaController);
+app.use('/livro_editora', livroEditoraController);
 
 //Inicia o servidor na porta definida e exibe uma mensagem no console
 app.listen(port, () => {

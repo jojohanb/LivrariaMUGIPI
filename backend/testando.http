@@ -113,7 +113,7 @@ Content-Type: application/json
 }
 
 ### 
-GET http://localhost:8086/divida/listar
+GET http://localhost:8086/tipo/listar
 
 ### 
 PUT http://localhost:8086/divida/1
@@ -152,7 +152,7 @@ Content-Type: application/json
 
 
 
-### Criar vínculo livro-autor
+### 
 POST http://localhost:8086/livro_autores/cadastrar
 Content-Type: application/json
 
@@ -161,13 +161,13 @@ Content-Type: application/json
   "id_autor": 2
 }
 
-### Buscar todos os vínculos
+### 
 GET http://localhost:8086/livro_autores/listar
 
-### Buscar por id_livro específico
+### 
 GET http://localhost:8086/livro_autores/1
 
-### Deletar vínculo
+### 
 DELETE http://localhost:8086/livro_autores/deletar
 Content-Type: application/json
 
@@ -176,7 +176,7 @@ Content-Type: application/json
   "id_autor": 2
 }
 
-### Criar vínculo pessoa-curso
+### 
 POST http://localhost:8086/curso_pessoa/cadastrarg
 Content-Type: application/json
 
@@ -186,17 +186,83 @@ Content-Type: application/json
   "ano_ingresso": "2022-02-01"
 }
 
-### Buscar todos os vínculos
+### 
 GET http://localhost:3000/curso_pessoa
 
-### Buscar por ra_pessoa específico
+### 
 GET http://localhost:3000/curso_pessoa/123
 
-### Deletar vínculo
+### 
 DELETE http://localhost:3000/curso_pessoa
 Content-Type: application/json
 
 {
   "ra_pessoa": 123,
   "id_curso": 10
+}
+###
+### Cadastrar tipo
+POST http://localhost:8086/tipo/cadastrar
+Content-Type: application/json
+
+{
+  "tipo_id": 1,
+  "descricao": "Aluno"
+}
+
+### Listar tipos
+GET http://localhost:8086/tipo/listar
+
+### Atualizar tipo
+PUT http://localhost:8086/tipo/1
+Content-Type: application/json
+
+{
+  "descricao": "Aluno - Graduação"
+}
+
+### Deletar tipo
+DELETE http://localhost:8086/tipo/deletar
+Content-Type: application/json
+
+{
+  "tipo_id": 1
+}
+### Cadastrar pessoa
+POST http://localhost:8086/pessoa/cadastrar
+Content-Type: application/json
+
+{
+  "ra_pessoa": 123456,
+  "tipo_id": 1,
+  "nome": "Giovana Souza",
+  "email": "giovana@email.com",
+  "telefone": "11999999999",
+  "data_nascimento": "2000-01-01",
+  "login": "giovana123",
+  "senha": "senha123"
+}
+
+### Listar pessoas
+GET http://localhost:8086/pessoa/listar
+
+### Atualizar pessoa
+PUT http://localhost:8086/pessoa/123456
+Content-Type: application/json
+
+{
+  "nome": "Giovana Silva",
+  "email": "giovana.silva@email.com",
+  "telefone": "11988888888",
+  "data_nascimento": "2000-01-01",
+  "login": "giovana321",
+  "senha": "novaSenha456"
+}
+
+### Deletar pessoa
+DELETE http://localhost:8086/pessoa/deletar
+Content-Type: application/json
+
+{
+  "ra_pessoa": 123456
 }

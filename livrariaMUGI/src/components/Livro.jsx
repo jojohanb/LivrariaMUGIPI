@@ -4,7 +4,7 @@ import './livros.css';
 const Livros = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarFormularioEmprestimo, setMostrarFormularioEmprestimo] = useState(false);
-  const [capasCadastradas, setCapasCadastradas] = useState([]);
+  const [livros, setLivros] = useState([]);
 
   const [isbn, setIsbn] = useState('');
   const [titulo, setTitulo] = useState('');
@@ -16,7 +16,7 @@ const Livros = () => {
   const [idSubcategoria, setIdSubcategoria] = useState('');
   const [urlCapa, setUrlCapa] = useState('');
 
-  // Estados do formulário de empréstimo
+  // Formulário empréstimo
   const [raPessoa, setRaPessoa] = useState('');
   const [idLivroEmprestimo, setIdLivroEmprestimo] = useState('');
   const [dataEmprestimo, setDataEmprestimo] = useState('');
@@ -24,20 +24,43 @@ const Livros = () => {
   const [historico, setHistorico] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8086/livro/listar')
-      .then(response => response.json())
-      .then(data => {
-        if (data.livros) {
-          setCapasCadastradas(data.livros.map(livro => livro.url_capa));
-        }
-      })
-      .catch(error => {
-        console.error('Erro ao buscar livros:', error);
-      });
+    buscarLivros();
   }, []);
+
+  const buscarLivros = () => {
+    fetch('http://localhost:8086/livro/listar')
+      .then(res => res.json())
+      .then(data => {
+        if (data.livros) setLivros(data.livros);
+      })
+      .catch(err => console.error('Erro ao buscar livros:', err));
+  };
+
+  const handleDeletarLivro = async (id_livro) => {
+    if (!window.confirm('Tem certeza que deseja deletar este livro?')) return;
+
+    try {
+      const response = await fetch('http://localhost:8086/livro/deletar', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_livro }),
+      });
+
+      if (response.ok) {
+        setLivros(prev => prev.filter(livro => livro.id_livro !== id_livro));
+      } else {
+        const erro = await response.json();
+        alert(`Erro: ${erro.erro || erro.mensagem}`);
+      }
+    } catch (error) {
+      console.error('Erro ao deletar livro:', error);
+      alert('Erro ao tentar deletar o livro.');
+    }
+  };
 
   const handleCadastrarLivro = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch('http://localhost:8086/livro/cadastrar', {
         method: 'POST',
@@ -51,14 +74,15 @@ const Livros = () => {
           edicao,
           id_categoria: parseInt(idCategoria),
           id_subcategoria: parseInt(idSubcategoria),
-          url_capa: urlCapa
+          url_capa: urlCapa,
         }),
       });
 
       const data = await response.json();
       if (response.ok) {
         alert('Livro cadastrado com sucesso!');
-        setCapasCadastradas((prev) => [...prev, urlCapa]);
+        setLivros(prev => [...prev, data.livro]);
+        // Limpa campos
         setIsbn('');
         setTitulo('');
         setIdAutor('');
@@ -78,15 +102,38 @@ const Livros = () => {
     }
   };
 
-  const handleEmprestar = (e) => {
+  const handleEmprestar = async (e) => {
     e.preventDefault();
-    alert('Empréstimo registrado (simulado).');
-    setRaPessoa('');
-    setIdLivroEmprestimo('');
-    setDataEmprestimo('');
-    setDataDevolucao('');
-    setHistorico('');
-    setMostrarFormularioEmprestimo(false);
+
+    try {
+      const response = await fetch('http://localhost:8086/emprestimo/cadastrar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ra_pessoa: parseInt(raPessoa),
+          id_livro: parseInt(idLivroEmprestimo),
+          data_emprestimo: dataEmprestimo,
+          data_devolucao: dataDevolucao || null,
+          historico: historico || null,
+        }),
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Empréstimo registrado com sucesso!');
+        setRaPessoa('');
+        setIdLivroEmprestimo('');
+        setDataEmprestimo('');
+        setDataDevolucao('');
+        setHistorico('');
+        setMostrarFormularioEmprestimo(false);
+      } else {
+        alert(`Erro: ${data.erro || data.error || 'Erro ao registrar empréstimo.'}`);
+      }
+    } catch (erro) {
+      console.error('Erro na requisição:', erro);
+      alert('Erro ao conectar com o servidor.');
+    }
   };
 
   return (
@@ -104,14 +151,15 @@ const Livros = () => {
       <section className="destaque-livro">
         <div className="imagem-livro">
           <div className="fundo-roxo"></div>
-          <img src="https://images-na.ssl-images-amazon.com/images/I/71UwSHSZRnS.jpg" alt="Capa do livro A Culpa é das Estrelas" />
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/71UwSHSZRnS.jpg"
+            alt="Capa do livro A Culpa é das Estrelas"
+          />
         </div>
         <div className="texto-livro">
           <h2>A Culpa é das Estrelas</h2>
           <p>
-            "A Culpa é das Estrelas", de John Green, é uma tocante história de
-            amor entre Hazel e Augustus, dois adolescentes com câncer que se
-            conhecem em um grupo de apoio...
+            "A Culpa é das Estrelas", de John Green, é uma tocante história de amor entre Hazel e Augustus, dois adolescentes com câncer...
           </p>
           <div className="botoes">
             <button className="btn-emprestar" onClick={() => setMostrarFormularioEmprestimo(!mostrarFormularioEmprestimo)}>
@@ -125,11 +173,11 @@ const Livros = () => {
       {mostrarFormularioEmprestimo && (
         <form className="formulario-emprestimo" onSubmit={handleEmprestar}>
           <h3>Formulário de Empréstimo</h3>
-          <input type="number" placeholder="RA da Pessoa" value={raPessoa} onChange={(e) => setRaPessoa(e.target.value)} required />
-          <input type="number" placeholder="ID do Livro" value={idLivroEmprestimo} onChange={(e) => setIdLivroEmprestimo(e.target.value)} required />
-          <input type="date" placeholder="Data de Empréstimo" value={dataEmprestimo} onChange={(e) => setDataEmprestimo(e.target.value)} required />
-          <input type="date" placeholder="Data de Devolução" value={dataDevolucao} onChange={(e) => setDataDevolucao(e.target.value)} />
-          <input type="text" placeholder="Histórico" value={historico} onChange={(e) => setHistorico(e.target.value)} />
+          <input type="number" placeholder="RA da Pessoa" value={raPessoa} onChange={e => setRaPessoa(e.target.value)} required />
+          <input type="number" placeholder="ID do Livro" value={idLivroEmprestimo} onChange={e => setIdLivroEmprestimo(e.target.value)} required />
+          <input type="date" value={dataEmprestimo} onChange={e => setDataEmprestimo(e.target.value)} required />
+          <input type="date" value={dataDevolucao} onChange={e => setDataDevolucao(e.target.value)} />
+          <input type="text" placeholder="Histórico" value={historico} onChange={e => setHistorico(e.target.value)} />
           <button type="submit">Enviar</button>
         </form>
       )}
@@ -143,22 +191,27 @@ const Livros = () => {
 
         {mostrarFormulario && (
           <form className="formulario-livro" onSubmit={handleCadastrarLivro}>
-            <input type="text" placeholder="ISBN" value={isbn} onChange={(e) => setIsbn(e.target.value)} required />
-            <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} required />
-            <input type="text" placeholder="ID do autor" value = {idAutor} onChange={(e) => setIdAutor(e.target.value)} required />
-            <input type="number" placeholder="ID da Editora" value={idEditora} onChange={(e) => setIdEditora(e.target.value)} required />
-            <input type="number" placeholder="Quantidade Disponível" value={qtdDisponivel} onChange={(e) => setQtdDisponivel(e.target.value)} required />
-            <input type="text" placeholder="Edição" value={edicao} onChange={(e) => setEdicao(e.target.value)} />
-            <input type="number" placeholder="ID da Categoria" value={idCategoria} onChange={(e) => setIdCategoria(e.target.value)} required />
-            <input type="number" placeholder="ID da Subcategoria" value={idSubcategoria} onChange={(e) => setIdSubcategoria(e.target.value)} required />
-            <input type="url" placeholder="URL da Capa" value={urlCapa} onChange={(e) => setUrlCapa(e.target.value)} required />
+            <input type="text" placeholder="ISBN" value={isbn} onChange={e => setIsbn(e.target.value)} required />
+            <input type="text" placeholder="Título" value={titulo} onChange={e => setTitulo(e.target.value)} required />
+            <input type="text" placeholder="ID do autor" value={idAutor} onChange={e => setIdAutor(e.target.value)} required />
+            <input type="number" placeholder="ID da Editora" value={idEditora} onChange={e => setIdEditora(e.target.value)} required />
+            <input type="number" placeholder="Quantidade Disponível" value={qtdDisponivel} onChange={e => setQtdDisponivel(e.target.value)} required />
+            <input type="text" placeholder="Edição" value={edicao} onChange={e => setEdicao(e.target.value)} />
+            <input type="number" placeholder="ID da Categoria" value={idCategoria} onChange={e => setIdCategoria(e.target.value)} required />
+            <input type="number" placeholder="ID da Subcategoria" value={idSubcategoria} onChange={e => setIdSubcategoria(e.target.value)} required />
+            <input type="url" placeholder="URL da Capa" value={urlCapa} onChange={e => setUrlCapa(e.target.value)} required />
             <button type="submit">Cadastrar Livro</button>
           </form>
         )}
 
         <div className="galeria-livros">
-          {capasCadastradas.map((url, index) => (
-            <img key={index} src={url} alt={`Capa cadastrada ${index + 1}`} />
+          {livros.map(livro => (
+            <div key={livro.id_livro} className="livro-item">
+              <img src={livro.url_capa} alt={livro.titulo} />
+              <button className="btn-deletar" onClick={() => handleDeletarLivro(livro.id_livro)} title="Deletar livro">
+                🗑️
+              </button>
+            </div>
           ))}
         </div>
       </div>

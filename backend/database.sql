@@ -70,7 +70,7 @@ CREATE TABLE LIVRO_AUTORES (
     PRIMARY KEY (id_livro, id_autor),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_autor) REFERENCES AUTORES(id_autor)
-); -- Dá pra fazer
+); -- FEITO
 
 CREATE TABLE EMPRESTIMO (
     id_emprestimo serial PRIMARY KEY,
@@ -84,7 +84,7 @@ CREATE TABLE EMPRESTIMO (
 CREATE TABLE CURSO (
     id_curso SERIAL PRIMARY KEY,
     nome_curso VARCHAR(30)
-); -- Dá pra fazer
+); -- FWITO
 
 CREATE TABLE CURSO_PESSOA (
     ra_pessoa INT,
@@ -93,7 +93,7 @@ CREATE TABLE CURSO_PESSOA (
     PRIMARY KEY (ra_pessoa, id_curso),
     FOREIGN KEY (ra_pessoa) REFERENCES PESSOA(ra_pessoa),
     FOREIGN KEY (id_curso) REFERENCES CURSO(id_curso)
-); -- Dá pra fazer
+); -- FWITO
 
 CREATE TABLE DIVIDAS (
     id_divida SERIAL PRIMARY KEY,
@@ -110,7 +110,7 @@ CREATE TABLE LIVRO_TEM_EDITORA (
     PRIMARY KEY (id_livro, id_editora),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_editora) REFERENCES EDITORA(id_editora)
-); -- Dá pra fazer
+); -- FWITO
 
 CREATE TABLE LIVRO_TEM_CATEGORIA (
     id_livro INT,
@@ -118,8 +118,6 @@ CREATE TABLE LIVRO_TEM_CATEGORIA (
     PRIMARY KEY (id_livro, id_categoria),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id_livro),
     FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id_categoria)
-); -- Dá pra fazer
+); -- FEITO
 
--- Faltam no total 5/14, dessas 14, 5 são tabelas de relações(não sei se serão necessárias).
--- Requisitos para terminar o trabalho, falta fazer todos os testes, terminar a interface e conectar com o bd.
--- E a documentação do trabalho
+-- TUDO FEITOOOOOOOO
